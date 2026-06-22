@@ -328,6 +328,8 @@
       <a href="#modello" class="hover:text-white transition hoverable"><span data-it>Modello</span><span data-en>Model</span></a>
       <a href="#flusso" class="hover:text-accent-hi transition hoverable font-medium"><span data-it>Flusso soldi</span><span data-en>Money flow</span></a>
       <a href="#mario" class="hover:text-white transition hoverable">Mario AI</a>
+      <a href="#stripe-connect" class="hover:text-accent-hi transition hoverable">Stripe</a>
+      <a href="#valutazione" class="hover:text-white transition hoverable"><span data-it>Scoring</span><span data-en>Scoring</span></a>
       <a href="#cohort" class="hover:text-white transition hoverable">Cohort</a>
       <a href="#docs" class="hover:text-white transition hoverable"><span data-it>Documenti</span><span data-en>Docs</span></a>
     </nav>
@@ -923,10 +925,234 @@
       </div>
 
       <p class="mt-6 text-sm text-ink-200 leading-relaxed max-w-3xl">
-        <span data-it>Il contratto <strong class="text-white">Revenue Share Marketing (RSM)</strong> firmato dalla startup la obbliga a versare la quota mensilmente entro il 15. Penale 2%/mese sui ritardi. Garanzia personale del founder. Audit periodico dei dati finanziari.</span>
-        <span data-en>The signed <strong class="text-white">Revenue Share Marketing (RSM)</strong> contract binds the startup to monthly payment by the 15th. 2% monthly late penalty. Founder personal guarantee. Periodic financial data audit.</span>
+        <span data-it>Tutto avviene <strong class="text-white">alla fonte via Stripe Connect</strong>: zero bonifici manuali, zero fatture mensili, zero rischio mancato pagamento (vedi sezione "Stripe Connect" sotto).</span>
+        <span data-en>Everything happens <strong class="text-white">at the source via Stripe Connect</strong>: zero manual transfers, zero monthly invoices, zero risk of non-payment (see "Stripe Connect" section below).</span>
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ STRIPE CONNECT — Trattenuta alla fonte ═══════════════════ -->
+<section id="stripe-connect" class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 80% 30%, rgba(60,123,255,0.18) 0px, transparent 50%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-12">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>provider di pagamento · zero licenze</span>
+        <span data-en>payment provider · zero licenses</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+        <span data-it>Stripe Connect. <span class="serif aurora-text font-normal block">Trattenuta alla fonte.</span></span>
+        <span data-en>Stripe Connect. <span class="serif aurora-text font-normal block">Withheld at the source.</span></span>
+      </h2>
+      <p class="mt-6 text-lg text-ink-100 leading-relaxed max-w-2xl">
+        <span data-it>Non siamo provider di pagamento (no licenza PSP/EMI necessaria). Usiamo <strong class="text-white">Stripe Connect</strong>: il cliente finale paga la startup, Stripe splitta automaticamente il pagamento e ci trattiene la nostra quota PRIMA che la startup riceva il resto. Niente bonifici manuali, niente fatture mensili, zero rischio insolvenza.</span>
+        <span data-en>We are not a payment provider (no PSP/EMI license needed). We use <strong class="text-white">Stripe Connect</strong>: the end customer pays the startup, Stripe automatically splits the payment and withholds our cut BEFORE the startup receives the rest. No manual transfers, no monthly invoices, zero default risk.</span>
+      </p>
+    </div>
+
+    <!-- Flow diagram split -->
+    <div class="glass-strong rounded-2xl p-7 sm:p-10 mb-10">
+      <div class="font-mono text-xs text-accent-hi mb-6"><span data-it>esempio: cliente paga €49 per prodotto SaaS</span><span data-en>example: customer pays €49 for a SaaS product</span></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+
+        <div class="md:col-span-1 text-center">
+          <div class="text-4xl mb-2">👤</div>
+          <div class="font-mono text-[11px] text-ink-200"><span data-it>cliente paga</span><span data-en>customer pays</span></div>
+          <div class="display text-2xl text-white tnum">€49,00</div>
+        </div>
+
+        <div class="md:col-span-1 hidden md:flex justify-center text-accent-hi text-2xl">→</div>
+
+        <div class="md:col-span-1 text-center">
+          <div class="text-4xl mb-2">🔀</div>
+          <div class="font-mono text-[11px] text-ink-200">Stripe Connect</div>
+          <div class="text-white font-medium text-sm"><span data-it>splitta in 3</span><span data-en>splits in 3</span></div>
+        </div>
+
+        <div class="md:col-span-1 hidden md:flex justify-center text-accent-hi text-2xl">→</div>
+
+        <div class="md:col-span-1 text-center">
+          <div class="text-4xl mb-2">📊</div>
+          <div class="font-mono text-[11px] text-ink-200"><span data-it>distribuito a 3 conti</span><span data-en>distributed to 3 accounts</span></div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+
+        <div class="rounded-xl border border-white/[0.10] p-5 bg-white/[0.02]">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="font-mono text-[11px] text-ink-200">STRIPE FEE</span>
+            <span class="display text-xl text-white tnum">€0,89</span>
+          </div>
+          <div class="text-xs text-ink-100"><span data-it>1.4% + €0.20 per processare il pagamento (commissione Stripe standard).</span><span data-en>1.4% + €0.20 to process the payment (Stripe standard fee).</span></div>
+        </div>
+
+        <div class="rounded-xl border border-accent/40 p-5" style="background: rgba(255,45,85,0.06);">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="font-mono text-[11px] text-accent-hi">CROWADS REVENUE SHARE</span>
+            <span class="display text-xl aurora-text tnum">€14,40</span>
+          </div>
+          <div class="text-xs text-ink-100"><span data-it>30% del netto (calcolato dall'algoritmo, dinamico). Trattenuto subito, ridistribuito agli investitori il 20 del mese.</span><span data-en>30% of net (algorithmically calculated, dynamic). Withheld immediately, redistributed to investors on the 20th of the month.</span></div>
+        </div>
+
+        <div class="rounded-xl border border-white/[0.10] p-5 bg-white/[0.02]">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="font-mono text-[11px] text-ink-200">STARTUP ACCOUNT</span>
+            <span class="display text-xl text-white tnum">€33,71</span>
+          </div>
+          <div class="text-xs text-ink-100"><span data-it>Il netto va al conto Stripe della startup. Payout automatico bancario.</span><span data-en>The net flows to the startup's Stripe account. Automatic bank payout.</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Vantaggi -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+
+      <article class="glass rounded-2xl p-7">
+        <div class="font-mono text-xs text-accent-hi mb-3">▸ <span data-it>vantaggi</span><span data-en>benefits</span></div>
+        <ul class="space-y-3 text-sm text-ink-100">
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">✓</span><span data-it><strong class="text-white">Zero insolvenza</strong>: la nostra quota la trattiene Stripe prima che la startup la riceva</span><span data-en><strong class="text-white">Zero default</strong>: Stripe withholds our cut before the startup receives anything</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">✓</span><span data-it><strong class="text-white">Niente fatturazione manuale</strong>: il flusso è automatico, settled real-time</span><span data-en><strong class="text-white">No manual billing</strong>: real-time automated settlement</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">✓</span><span data-it><strong class="text-white">Prezzo dinamico</strong>: se la startup cambia prezzo da €49 → €39, la % viene ricalcolata automaticamente</span><span data-en><strong class="text-white">Dynamic pricing</strong>: if the startup changes price from €49 → €39, the % auto-recalculates</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">✓</span><span data-it><strong class="text-white">No licenza</strong>: non siamo PSP. Stripe è il PSP regolato.</span><span data-en><strong class="text-white">No license</strong>: we're not a PSP. Stripe is the licensed PSP.</span></li>
+        </ul>
+      </article>
+
+      <article class="glass rounded-2xl p-7">
+        <div class="font-mono text-xs text-accent-hi mb-3">▸ <span data-it>provider supportati</span><span data-en>supported providers</span></div>
+        <ul class="space-y-3 text-sm text-ink-100">
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">▸</span><strong class="text-white">Stripe Connect</strong> · <span class="text-ink-200">application_fee · standard market</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">▸</span><strong class="text-white">Mangopay Marketplace</strong> · <span class="text-ink-200">EU regulated · per marketplace fintech</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">▸</span><strong class="text-white">Adyen for Platforms</strong> · <span class="text-ink-200">enterprise scale</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">▸</span><strong class="text-white">Shopify checkout extension</strong> · <span class="text-ink-200">per merchant Shopify nativi</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi shrink-0">▸</span><strong class="text-white">Crypto USDC</strong> · <span class="text-ink-200">opzionale per pagamenti internazionali tramite Coinbase Commerce</span></li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p class="mt-10 text-sm text-ink-200 max-w-3xl leading-relaxed">
+      <span data-it>La startup, durante l'onboarding, autorizza un <strong class="text-white">Stripe Connect Account</strong> dedicato (o connetti il suo esistente). Da quel momento ogni pagamento dei suoi clienti passa attraverso lo split automatico. Stripe Connect è regolato e auditato; CROWADS resta solo agenzia di performance marketing.</span>
+      <span data-en>During onboarding the startup authorizes a dedicated <strong class="text-white">Stripe Connect Account</strong> (or connects its existing one). From that moment every customer payment goes through the automatic split. Stripe Connect is regulated and audited; CROWADS remains only a performance marketing agency.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ VALUTAZIONE & ONBOARDING ═══════════════════ -->
+<section id="valutazione" class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 30% 70%, rgba(201,169,97,0.16) 0px, transparent 45%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-3xl mb-12">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>onboarding startup · valutazione + scoring</span>
+        <span data-en>startup onboarding · valuation + scoring</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+        <span data-it>L'algoritmo decide la <span class="serif aurora-text font-normal">tua percentuale.</span></span>
+        <span data-en>The algorithm decides <span class="serif aurora-text font-normal">your percentage.</span></span>
+      </h2>
+      <p class="mt-6 text-lg text-ink-100 leading-relaxed max-w-2xl">
+        <span data-it>Prima di entrare in CROWADS, la startup paga una consulenza di valutazione. Il nostro algoritmo analizza progetto, mercato, prezzo, traction, margini e restituisce un <strong class="text-white">scoring di rischio + percentuali ottimali</strong> per la campagna. Più rischio = più % a CROWADS (per compensare il rischio agli investitori). Più solidità = meno % a CROWADS.</span>
+        <span data-en>Before joining CROWADS, the startup pays a valuation consultation. Our algorithm analyzes project, market, price, traction, margins, and returns a <strong class="text-white">risk score + optimal percentages</strong> for the campaign. Higher risk = higher CROWADS % (to compensate investor risk). Higher solidity = lower CROWADS %.</span>
+      </p>
+    </div>
+
+    <!-- 4 step onboarding -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 sm:gap-4 mb-14">
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="font-mono text-xs text-accent-hi">STEP 01</div>
+        <h3 class="text-lg font-semibold text-white"><span data-it>La startup paga la consulenza</span><span data-en>Startup pays consultation</span></h3>
+        <p class="text-sm text-ink-100">
+          <span data-it>€500 una tantum, via Stripe. Sblocca l'accesso al sistema di valutazione + l'onboarding ai canali ads.</span>
+          <span data-en>€500 one-time, via Stripe. Unlocks valuation system + onboarding to ad channels.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="font-mono text-xs text-accent-hi">STEP 02</div>
+        <h3 class="text-lg font-semibold text-white"><span data-it>Submission del progetto</span><span data-en>Project submission</span></h3>
+        <p class="text-sm text-ink-100">
+          <span data-it>Carica business plan, prezzi, traction, margini, target market, landing page. Tutto via form strutturato + upload documenti.</span>
+          <span data-en>Upload business plan, prices, traction, margins, target market, landing page. All through a structured form + document upload.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="font-mono text-xs text-accent-hi">STEP 03</div>
+        <h3 class="text-lg font-semibold text-white"><span data-it>Algoritmo + revisione umana</span><span data-en>Algorithm + human review</span></h3>
+        <p class="text-sm text-ink-100">
+          <span data-it>L'algoritmo CROWADS calcola scoring di rischio, CAC atteso, ROAS realistico, %. Il team rivede manualmente e decide tier.</span>
+          <span data-en>The CROWADS algorithm computes risk score, expected CAC, realistic ROAS, %. The team manually reviews and assigns the tier.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt glass-strong rounded-2xl p-6 flex flex-col gap-3 border-accent/30">
+        <div class="font-mono text-xs text-accent-hi">STEP 04</div>
+        <h3 class="text-lg font-semibold text-white"><span data-it>Report finale + contratto</span><span data-en>Final report + contract</span></h3>
+        <p class="text-sm text-ink-100">
+          <span data-it>La startup riceve un report PDF con: scoring, tier consigliato, % CROWADS proposta, % investitore, ROI atteso, range prezzo ottimale.</span>
+          <span data-en>The startup gets a PDF report with: scoring, suggested tier, proposed CROWADS %, investor %, expected ROI, optimal price range.</span>
+        </p>
+      </article>
+
+    </div>
+
+    <!-- Esempio scoring -->
+    <div class="glass-strong rounded-2xl p-7 sm:p-10">
+      <div class="font-mono text-xs text-accent-hi mb-5"><span data-it>esempio · scoring algoritmico</span><span data-en>example · algorithmic scoring</span></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <div>
+          <div class="text-sm text-ink-200 mb-4">PROGETTO A · SaaS B2B consolidato</div>
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm"><span class="text-ink-100">Traction</span><span class="text-white font-medium">€80k MRR</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100">Margine lordo</span><span class="text-white font-medium">82%</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100">LTV/CAC ratio</span><span class="text-white font-medium">5.2x</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100"><span data-it>Mercato</span><span data-en>Market</span></span><span class="text-white font-medium">consolidato</span></div>
+            <hr class="border-white/[0.08] my-3">
+            <div class="flex justify-between text-sm"><span class="text-ink-200"><span data-it>Scoring rischio</span><span data-en>Risk score</span></span><span class="text-green-400 font-semibold">2/10 · basso</span></div>
+            <div class="flex justify-between"><span class="text-ink-200 text-sm">CROWADS %</span><span class="display text-2xl aurora-text tnum">22%</span></div>
+            <div class="flex justify-between"><span class="text-ink-200 text-sm"><span data-it>Premio investitore</span><span data-en>Investor premium</span></span><span class="display text-2xl text-white tnum">15%</span></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-sm text-ink-200 mb-4">PROGETTO B · D2C consumer early-stage</div>
+          <div class="space-y-2">
+            <div class="flex justify-between text-sm"><span class="text-ink-100">Traction</span><span class="text-white font-medium">€2k MRR</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100">Margine lordo</span><span class="text-white font-medium">38%</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100">LTV/CAC ratio</span><span class="text-white font-medium">1.8x</span></div>
+            <div class="flex justify-between text-sm"><span class="text-ink-100"><span data-it>Mercato</span><span data-en>Market</span></span><span class="text-white font-medium"><span data-it>da validare</span><span data-en>to validate</span></span></div>
+            <hr class="border-white/[0.08] my-3">
+            <div class="flex justify-between text-sm"><span class="text-ink-200"><span data-it>Scoring rischio</span><span data-en>Risk score</span></span><span class="text-accent-hi font-semibold">8/10 · alto</span></div>
+            <div class="flex justify-between"><span class="text-ink-200 text-sm">CROWADS %</span><span class="display text-2xl aurora-text tnum">45%</span></div>
+            <div class="flex justify-between"><span class="text-ink-200 text-sm"><span data-it>Premio investitore</span><span data-en>Investor premium</span></span><span class="display text-2xl text-white tnum">60%</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="mt-8 text-sm text-ink-200 leading-relaxed">
+        <span data-it>Le due percentuali (CROWADS % + premio investitore) si sommano e definiscono la quota totale che la startup paga sul revenue tracciato. Più rischio → più premio investitore (per compensarlo) + più fee CROWADS (per coprire il maggior carico operativo).</span>
+        <span data-en>The two percentages (CROWADS % + investor premium) add up to the total share the startup pays on tracked revenue. Higher risk → higher investor premium (to compensate) + higher CROWADS fee (to cover the heavier operational load).</span>
+      </p>
+    </div>
+
+    <p class="mt-10 text-sm text-ink-200 max-w-3xl leading-relaxed">
+      <span data-it>Il report di valutazione include anche il <strong class="text-white">range prezzo ottimale</strong>: se la startup vende a €49 ma l'algoritmo dice che a €39 il prodotto è più appetibile per il target, lo dichiariamo subito. La startup è libera di scegliere il prezzo, ma il modello aggiorna automaticamente le % di conseguenza.</span>
+      <span data-en>The valuation report also includes the <strong class="text-white">optimal price range</strong>: if the startup sells at €49 but the algorithm says €39 is more attractive for the target, we say so upfront. The startup is free to pick the price, but the model auto-updates percentages accordingly.</span>
+    </p>
   </div>
 </section>
 

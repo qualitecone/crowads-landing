@@ -3,7 +3,7 @@
 **Versione**: 1.0
 **Data di pubblicazione**: 21 giugno 2026
 **Entrata in vigore**: data di registrazione dell'Utente
-**Operatore**: Qualitec FZE, Sede legale: Abu Dhabi Global Market (ADGM), United Arab Emirates
+**Operatore**: Ale & Gio, Sede legale: Abu Dhabi Global Market (ADGM), United Arab Emirates
 **Sito web**: https://crowads.com
 **Email contatto**: legal@crowads.com
 
@@ -40,8 +40,8 @@
 
 Ai fini del presente Regolamento, i seguenti termini hanno il significato indicato:
 
-- **Piattaforma**: il sito web https://crowads.com e tutti i servizi tecnologici resi disponibili da Qualitec FZE.
-- **Operatore**: Qualitec FZE, società di diritto degli Emirati Arabi Uniti.
+- **Piattaforma**: il sito web https://crowads.com e tutti i servizi tecnologici resi disponibili da Ale & Gio.
+- **Operatore**: Ale & Gio, società di diritto degli Emirati Arabi Uniti.
 - **Utente**: chiunque sia registrato sulla Piattaforma.
 - **Investitore**: Utente persona fisica o giuridica che destina capitale a una Campagna.
 - **Startup**: Utente persona giuridica beneficiaria della Campagna, che riceve il servizio di marketing performance e firma il contratto RSM.
@@ -258,7 +258,7 @@ Al termine del periodo di attribuzione:
 
 ### 6.1 Natura del contratto
 
-Il contratto RSM è stipulato tra **Operatore (Qualitec FZE)** e **Startup**. Gli Investitori NON sono parte del contratto RSM, ma traggono beneficio economico attraverso la propria sottoscrizione della Campagna sulla Piattaforma.
+Il contratto RSM è stipulato tra **Operatore (Ale & Gio)** e **Startup**. Gli Investitori NON sono parte del contratto RSM, ma traggono beneficio economico attraverso la propria sottoscrizione della Campagna sulla Piattaforma.
 
 ### 6.2 Causale contrattuale
 
@@ -324,7 +324,7 @@ Se per qualsiasi motivo la Campagna non viene lanciata entro 60 giorni dal raggi
 
 ### 8.1 Account ads
 
-L'Operatore gestisce direttamente le Ads tramite account intestati a **Qualitec FZE** sulle seguenti piattaforme:
+L'Operatore gestisce direttamente le Ads tramite account intestati a **Ale & Gio** sulle seguenti piattaforme:
 - Meta Ads (Facebook, Instagram, WhatsApp, Threads)
 - Google Ads (Search, Display, YouTube, Performance Max)
 - TikTok for Business
@@ -579,7 +579,7 @@ Gli Utenti rinunciano espressamente a partecipare a class action o azioni collet
 
 ### 15.1 Titolare del trattamento
 
-Qualitec FZE, sede ADGM Abu Dhabi, è titolare del trattamento ai sensi del GDPR (per Utenti residenti UE) e delle equivalenti normative locali.
+Ale & Gio, sede Dubai, è titolare del trattamento ai sensi del GDPR (per Utenti residenti UE) e delle equivalenti normative locali.
 
 ### 15.2 Dati raccolti
 
@@ -630,7 +630,7 @@ Richieste a: privacy@crowads.com — risposta entro 30 giorni.
 
 ### 15.7 Trasferimenti extra-UE
 
-Dati di Utenti UE possono essere trasferiti a UAE (server Qualitec) e USA (provider cloud) sulla base di Standard Contractual Clauses approvate da Commissione UE.
+Dati di Utenti UE possono essere trasferiti a UAE (server CROWADS) e USA (provider cloud) sulla base di Standard Contractual Clauses approvate da Commissione UE.
 
 ### 15.8 Sicurezza
 
@@ -726,7 +726,7 @@ Comunicazioni ufficiali tra Utente e Operatore avvengono via:
 - Per comunicazioni formali: raccomandata con ricevuta di ritorno o PEC
 
 Indirizzo Operatore per comunicazioni formali:
-**Qualitec FZE**
+**Ale & Gio**
 Abu Dhabi Global Market (ADGM)
 Al Maryah Island, Abu Dhabi, UAE
 Email: legal@crowads.com
@@ -750,7 +750,7 @@ Ogni modifica genera nuova versione numerata e archiviata. Le versioni storiche 
 ---
 
 **Versione 1.0 — 21 giugno 2026**
-**© 2026 Qualitec FZE — Tutti i diritti riservati**
+**© 2026 CROWADS — Tutti i diritti riservati**
 
 ---
 
@@ -760,7 +760,7 @@ Ogni modifica genera nuova versione numerata e archiviata. Le versioni storiche 
 CONTRATTO DI REVENUE SHARE MARKETING
 
 Tra
-QUALITEC FZE, con sede in ADGM Abu Dhabi (di seguito "OPERATORE")
+QUALITEC FZE, con sede in Dubai (di seguito "OPERATORE")
 
 e
 

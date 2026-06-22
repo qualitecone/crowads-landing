@@ -3,7 +3,7 @@
 **Versione**: 1.0 (Product-Ready, NON MVP)
 **Data**: 21 giugno 2026
 **Destinatario**: Lead Developer / Engineering Team
-**Owner prodotto**: Alessandro Pavan (Qualitec FZE)
+**Owner: Ale & Gio (co-founders)
 **Stato target**: Production-Ready entro 90 giorni dall'inizio sviluppo
 
 ---
@@ -1725,10 +1725,10 @@ Alla fine dello sviluppo:
 
 ## CHIUSURA
 
-Questo documento è il riferimento di verità per il prodotto CROWADS. Ogni feature implementata, ogni decisione architetturale, ogni endpoint API deve essere coerente con queste specifiche. Per modifiche significative, richiedere approval da product owner (Alessandro Pavan).
+Questo documento è il riferimento di verità per il prodotto CROWADS. Ogni feature implementata, ogni decisione architetturale, ogni endpoint API deve essere coerente con queste specifiche. Per modifiche significative, richiedere approval da product owner (Ale & Gio).
 
 Per chiarimenti: tech@crowads.com
 
 ---
 
-*© 2026 Qualitec FZE — CROWADS Engineering Spec v1.0*
+*© 2026 CROWADS — CROWADS Engineering Spec v1.0*

@@ -2,8 +2,8 @@
 
 **Versione**: 1.0
 **Data**: 21 giugno 2026
-**Autore**: Qualitec FZE (Dubai)
-**Founder**: Alessandro Pavan
+**Autore**: Ale & Gio
+**Founder**: Ale & Gio
 **Categoria di mercato**: Pooled Performance Marketing (categoria nuova, "crowdads")
 **Stato**: Pre-launch, founders cohort
 
@@ -86,7 +86,7 @@ revenue startup → revenue share (30% media) → distribuzione pro-rata
 
 ### 3.4 Differenziale tecnologico
 
-- **Mario AI** (asset proprietario Qualitec) genera creativi automatici per ogni campagna (Studio Image, Video, Carousel)
+- **Mario AI** (asset proprietario CROWADS) genera creativi automatici per ogni campagna (Studio Image, Video, Carousel)
 - Attribuzione server-side custom (no cookie loss)
 - Dashboard investitori real-time
 - Auto-Pilot algoritmo di portfolio allocation
@@ -146,7 +146,7 @@ Non esiste oggi una piattaforma in Europa o Medio Oriente che combini pooling in
 2. **Mario AI stack**: generazione creativi automatica, riduce costo operativo del 70%
 3. **No licenza richiesta**: time-to-market 10x più rapido vs competitor regolati
 4. **Dual residence Dubai + Italia**: accesso a investitori Golfo + EU
-5. **Network founder esistente**: Qualitec ha già contatti HNW Dubai e Verona
+5. **Network founder esistente**: Il team ha già contatti HNW Dubai e Verona
 
 ---
 
@@ -187,7 +187,7 @@ Non esiste oggi una piattaforma in Europa o Medio Oriente che combini pooling in
 
 **Lato startup:** 3 pilota interne (Mario AI, Misticanza, TapTrack). Zero costo acquisizione. Dimostrano modello.
 
-**Lato investitori:** 10-20 investitori del network founder Alessandro Pavan (Dubai HNW + Verona). Ticket €1k-50k. Soft launch in privato.
+**Lato investitori:** 10-20 investitori del network founder Ale & Gio (Dubai HNW + Verona). Ticket €1k-50k. Soft launch in privato.
 
 **Obiettivo:** chiudere 3 campagne pilota da €20-50k ciascuna. Generare prime metriche reali.
 
@@ -273,15 +273,15 @@ Non esiste oggi una piattaforma in Europa o Medio Oriente che combini pooling in
 
 ### 9.1 Founder
 
-**Alessandro Pavan** — CEO & Founder
-- Multi-venture entrepreneur (Qualitec Global FZE Dubai, Piz-Pol Verona, TapTrack, Misticanza)
+**Ale & Gio** — CEO & Founder
+- Multi-venture entrepreneur (Ale & Gio (co-founders) Dubai, Piz-Pol Verona, TapTrack, Misticanza)
 - Background: digital marketing, AI products, fintech
 - Network: HNW Dubai + EU
 - Operating dual base Italia + Dubai
 
 ### 9.2 Asset operativo Mario AI
 
-Mario AI è la piattaforma AI proprietaria di Qualitec già operativa con:
+Mario AI è la piattaforma AI proprietaria di CROWADS già operativa con:
 - Studio Image (generazione creativi visuali, gpt-image-1 + Pollinations)
 - Studio Video (Higgsfield CLI)
 - Studio Audio Pro (cleanup broadcast)
@@ -397,4 +397,4 @@ Il modello bootstrap permette di partire con investimento <€10k e arrivare a b
 ---
 
 *Documento confidenziale — solo per uso interno e investitori NDA-firmati.*
-*© 2026 Qualitec FZE — Dubai*
+*© 2026 CROWADS — Dubai*

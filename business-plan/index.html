@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CROWADS · Business plan v1.0 · Qualitec FZE · 21 giugno 2026">
+<title>CROWADS — Business plan</title>
+<link rel="stylesheet" href="/assets/styles.css">
+<style>
+  .doc-header {
+    padding: clamp(3rem, 6vw, 5rem) 0 var(--s-7);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--s-7);
+  }
+  .doc-header .label {
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--accent);
+    margin-bottom: var(--s-4);
+  }
+  .doc-header h1 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: -0.028em;
+    line-height: 1.05;
+    margin: 0 0 var(--s-3);
+    text-wrap: balance;
+  }
+  .doc-header .meta {
+    display: flex;
+    gap: var(--s-5);
+    flex-wrap: wrap;
+    margin-top: var(--s-5);
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+  }
+  .doc-header .meta span { display: inline-block; }
+
+  /* Pull quotes / callouts inline in prose */
+  .pull {
+    border-left: 2px solid var(--accent);
+    padding: 0 0 0 var(--s-5);
+    margin: var(--s-6) 0;
+    font-style: italic;
+    font-size: 1.125rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+    max-width: 60ch;
+  }
+
+  /* Big number callouts (TAM SAM SOM etc.) */
+  .nums {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    margin: var(--s-6) 0;
+  }
+  @media (max-width: 640px) { .nums { grid-template-columns: 1fr; } }
+  .nums .cell {
+    background: var(--bg);
+    padding: var(--s-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+  }
+  .nums .cell .k {
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+  }
+  .nums .cell .v {
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .nums .cell .desc {
+    font-size: var(--t-micro);
+    color: var(--ink-3);
+    line-height: 1.4;
+  }
+
+  /* Comparison table */
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--s-6) 0;
+    font-size: var(--t-small);
+  }
+  .compare th, .compare td {
+    text-align: left;
+    padding: var(--s-3) var(--s-4);
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+  }
+  .compare th {
+    font-weight: 600;
+    border-bottom: 1px solid var(--ink);
+    font-size: var(--t-micro);
+  }
+  .compare td.name { font-weight: 500; }
+  .compare td.muted { color: var(--ink-3); }
+
+  /* Risk table colored */
+  .risk-tab tr { border-bottom: 1px solid var(--hairline); }
+  .risk-tab .pill {
+    display: inline-block;
+    font-size: var(--t-tiny);
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: var(--r-pill);
+    font-family: var(--font-mono);
+  }
+  .risk-tab .pill.low { background: rgba(74,222,128,0.10); color: #4ADE80; }
+  .risk-tab .pill.med { background: rgba(251,191,36,0.10); color: #FBBF24; }
+  .risk-tab .pill.high { background: var(--accent-soft); color: var(--accent-hi); }
+
+  /* Section break */
+  .section-rule {
+    height: 1px;
+    background: var(--hairline);
+    margin: var(--s-9) 0 var(--s-7);
+    width: 100%;
+  }
+
+  .doc-foot {
+    margin-top: var(--s-9);
+    padding-top: var(--s-6);
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">CROWADS<span class="dot"></span></a>
+    <nav class="nav-links">
+      <a href="/landing/">Landing</a>
+      <a href="/business-plan/" aria-current="page">Business plan</a>
+      <a href="/regolamento/">Regolamento</a>
+      <a href="/spec/">Engineering</a>
+      <a href="landing.html#cta" class="nav-cta">Early access</a>
+    </nav>
+  </div>
+</header>
+
+<button class="toc-mobile-trigger" aria-label="Apri indice">TOC</button>
+
+<div class="doc-drawer toc-drawer">
+  <div class="toc-drawer-panel">
+    <div class="toc-label">Indice — Business plan</div>
+    <ol class="toc-list">
+      <li><a href="#executive-summary">Executive summary</a></li>
+      <li><a href="#problema">Problema e opportunità</a></li>
+      <li><a href="#soluzione">Soluzione: il modello</a></li>
+      <li><a href="#mercato">Mercato</a></li>
+      <li><a href="#competitor">Competitive landscape</a></li>
+      <li><a href="#revenue">Modello revenue</a></li>
+      <li><a href="#gtm">Go-to-market</a></li>
+      <li><a href="#finanziarie">Proiezioni finanziarie</a></li>
+      <li><a href="#team">Team & founder</a></li>
+      <li><a href="#milestones">Milestones</a></li>
+      <li><a href="#rischi">Rischi & mitigation</a></li>
+      <li><a href="#chiusura">Chiusura</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="doc-layout">
+
+  <!-- TOC desktop -->
+  <aside class="toc-aside">
+    <div class="toc-label">Business plan v1.0</div>
+    <ol class="toc-list">
+      <li><a href="#executive-summary">Executive summary</a></li>
+      <li><a href="#problema">Problema e opportunità</a></li>
+      <li><a href="#soluzione">Soluzione: il modello</a></li>
+      <li><a href="#mercato">Mercato</a></li>
+      <li><a href="#competitor">Competitive landscape</a></li>
+      <li><a href="#revenue">Modello revenue</a></li>
+      <li><a href="#gtm">Go-to-market</a></li>
+      <li><a href="#finanziarie">Proiezioni finanziarie</a></li>
+      <li><a href="#team">Team & founder</a></li>
+      <li><a href="#milestones">Milestones</a></li>
+      <li><a href="#rischi">Rischi & mitigation</a></li>
+      <li><a href="#chiusura">Chiusura</a></li>
+    </ol>
+  </aside>
+
+  <!-- DOC CONTENT -->
+  <article>
+    <header class="doc-header">
+      <div class="label">Business plan · v1.0</div>
+      <h1>Crowdfunding for ads. Un mercato nuovo in EU e MENA.</h1>
+      <p class="lede" style="margin-top: var(--s-5);">Pooled performance marketing per startup early-stage: capitale collettivo, ads tracciate, revenue share misurata. Documento di lavoro destinato a investitori HNW e family office sotto NDA.</p>
+      <div class="meta">
+        <span>21 giugno 2026</span>
+        <span>·</span>
+        <span>Qualitec FZE · ADGM Abu Dhabi</span>
+        <span>·</span>
+        <span>Confidenziale</span>
+      </div>
+    </header>
+
+    <section id="executive-summary" class="prose">
+      <h2>Executive summary</h2>
+      <p><strong>CROWADS</strong> è la prima piattaforma di "pooled performance marketing" in Europa e Medio Oriente. Un pool di investitori (privati, HNW, family office) finanzia collettivamente le campagne pubblicitarie misurabili di startup curate, ricevendo in cambio una quota del fatturato generato, proporzionale al capitale impegnato.</p>
+
+      <p>Il differenziale è strutturale: <strong>i fondi non vengono mai consegnati alla startup</strong>. Vengono spesi direttamente da CROWADS in ads tracciate su Meta, Google e TikTok, eliminando il rischio di uso improprio che caratterizza il crowdfunding tradizionale. Il revenue generato dalle campagne è attribuito via UTM, pixel e webhook API (Stripe / Shopify) e ridistribuito agli investitori in modo automatico.</p>
+
+      <p>Il modello legale è un contratto innominato di <strong>Revenue Share Marketing (RSM)</strong>. CROWADS opera come agenzia di performance marketing, non come intermediario finanziario. Sotto le soglie del safe harbor ECSP (meno di 149 partecipanti, meno di €5M per campagna in 12 mesi), nessuna licenza è richiesta in EU. Lo stesso pattern è già operativo in scala da Karmen (Francia, €100M ARR), GetVantage (India, $200M deployed) e Klub (India).</p>
+
+      <p>Il mercato globale del revenue-based financing vale $32B nel 2026 e cresce del 60% su base annua. In Europa è praticamente vuoto da player consumer-facing.</p>
+
+      <div class="nums">
+        <div class="cell">
+          <span class="k">Target 36 mesi</span>
+          <span class="v tnum">€50M</span>
+          <span class="desc">ad spend gestito cumulativo</span>
+        </div>
+        <div class="cell">
+          <span class="k">ARR target</span>
+          <span class="v tnum">€5M</span>
+          <span class="desc">a regime mese 36</span>
+        </div>
+        <div class="cell">
+          <span class="k">Capitale richiesto</span>
+          <span class="v tnum">&lt;€10k</span>
+          <span class="desc">bootstrap path, break-even mese 4-5</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="problema" class="prose">
+      <h2>Problema e opportunità</h2>
+
+      <h3>Sul lato startup</h3>
+      <p>Il 70% delle startup early-stage muore per <em>mancanza di marketing</em>, non per cattivo prodotto (CB Insights, 2025). Equity crowdfunding e VC sono leve di capitale lente, costose e dilutive. Le agenzie marketing prendono compenso a prescindere dai risultati: incentivo strutturalmente sbagliato. Revenue-based financing tipo Karmen o Wayflyer richiede già almeno €500k di revenue annuo: non è una leva per veri early-stage.</p>
+
+      <h3>Sul lato investitori</h3>
+      <p>Il crowdfunding tradizionale ha un collasso di fiducia: studi 2024 mostrano che il 60% dei progetti finanziati non rispetta milestone, e l'investitore non ha leverage operativo né visibilità su come i soldi vengono spesi. Gli investitori retail europei con ticket €100-10.000 sono esclusi dal venture capital tradizionale. I rendimenti dei bond e fondi tradizionali sono al 3-5% lordo, sotto inflazione. Manca un'asset class "marketing performance" accessibile e misurabile.</p>
+
+      <div class="pull">Tra crowdfunding e venture capital c'è uno spazio bianco: finanziare specificamente il marketing, in modo tracciabile, con ritorno legato a metriche oggettive (ROAS, CAC, LTV), accessibile da €100 in su.</div>
+
+      <p>CROWADS occupa esattamente questo spazio. Lo battezza con un nome di categoria: <strong>crowdads</strong>. Categoria di mercato nuova, brandable, dove siamo first mover.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="soluzione" class="prose">
+      <h2>Soluzione: il modello CROWADS</h2>
+
+      <h3>Flusso operativo</h3>
+      <p>Investitori conferiscono capitale in un pool, che è custodito in escrow su conto bancario dedicato. Quando la campagna raggiunge il budget target, CROWADS spende i fondi direttamente nelle piattaforme pubblicitarie con account proprietari. Le ads generano traffico sul sito della startup, tracciato via UTM e pixel. Le vendite vengono attribuite alla campagna via webhook Stripe / Shopify. La startup paga mensilmente una revenue share a CROWADS, che a sua volta distribuisce pro-quota agli investitori del pool.</p>
+
+      <h3>Tre attori, tre value proposition</h3>
+
+      <h4>Investitori retail e HNW</h4>
+      <ul>
+        <li>Accesso da €100 a un'asset class precedentemente esclusiva</li>
+        <li>Trasparenza totale via dashboard live (CAC, ROAS, conversion rate aggiornati in tempo reale)</li>
+        <li>Diversificazione automatica su 5-50 campagne in parallelo (modalità Auto-Pilot)</li>
+        <li>Rendimento atteso 12-25% annuo lordo su campagne a rischio medio</li>
+      </ul>
+
+      <h4>Startup</h4>
+      <ul>
+        <li>Capitale marketing senza diluizione equity e senza debito bancario</li>
+        <li>Pagamento solo se le ads performano (revenue share, non commitment fisso)</li>
+        <li>Esecuzione operativa fatta da CROWADS (ad management su Meta, Google, TikTok)</li>
+        <li>Onboarding strutturato che migliora il funnel stesso della startup</li>
+      </ul>
+
+      <h4>CROWADS</h4>
+      <ul>
+        <li>Setup fee da startup (€500-2.000)</li>
+        <li>Management fee 5-10% sul revenue share captato</li>
+        <li>Performance bonus 50% del surplus quando ROAS supera 3x</li>
+        <li>Scaling esponenziale: un ad-buyer gestisce 30+ campagne con automazione</li>
+      </ul>
+
+      <h3>Differenziale legale</h3>
+      <p>I soldi non sono mai versati alla startup: non c'è rischio uso improprio (a differenza del crowdfunding). La causale del contratto è "acquisto servizio marketing": non c'è applicazione della normativa sui securities. Operiamo come agenzia, non come intermediario finanziario: non serve licenza PSP, EMI o ECSP.</p>
+
+      <h3>Differenziale tecnologico</h3>
+      <p><strong>Mario AI</strong>, asset proprietario di Qualitec già operativo, genera creativi automatici per ogni campagna (Studio Image, Video, Carousel). Attribuzione server-side custom evita la perdita di tracking causata dal blocco dei cookie. La dashboard investitori è real-time. L'algoritmo Auto-Pilot fa portfolio allocation automatica. L'integrazione API è nativa con Stripe, Shopify, WooCommerce e SDK custom.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="mercato" class="prose">
+      <h2>Mercato</h2>
+
+      <h3>TAM, SAM, SOM</h3>
+      <div class="nums">
+        <div class="cell">
+          <span class="k">TAM globale</span>
+          <span class="v tnum">$10B</span>
+          <span class="desc">2% del global performance marketing ($500B)</span>
+        </div>
+        <div class="cell">
+          <span class="k">SAM (EU + UAE + UK)</span>
+          <span class="v tnum">$4B</span>
+          <span class="desc">2% del SAM digital ads ($200B)</span>
+        </div>
+        <div class="cell">
+          <span class="k">SOM 36 mesi</span>
+          <span class="v tnum">$50M</span>
+          <span class="desc">0,025% del SAM = realistico per first-mover</span>
+        </div>
+      </div>
+
+      <h3>Tassi di crescita</h3>
+      <p>Tre tendenze convergenti spingono il mercato: il revenue-based financing cresce del 60% su base annua (Allied Market Research 2024-2028), il performance marketing del 14% e il crowdfunding alternativo del 25%. CROWADS si colloca nell'intersezione delle tre, con vento fortissimo a favore.</p>
+
+      <h3>Geografie prioritarie</h3>
+      <p>Lancio in Italia + UAE (rete founder esistente), espansione in Spagna, Francia, Germania, UK entro 18 mesi. USA via SPV Delaware da mese 18+.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="competitor" class="prose">
+      <h2>Competitive landscape</h2>
+
+      <h3>Nessun competitor diretto in EU/UAE</h3>
+      <p>Non esiste oggi una piattaforma in Europa o Medio Oriente che combini pooling di investitori, esecuzione ads centralizzata e revenue share automatizzata. Siamo first mover.</p>
+
+      <h3>Competitor indiretti</h3>
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Modello</th>
+            <th>Limite vs CROWADS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Karmen (FR)</td><td>RBF su balance sheet proprio</td><td class="muted">Niente pooling, finanzia solo merchant con €500k+ revenue</td></tr>
+          <tr><td class="name">GetVantage (IN)</td><td>RBF marketplace</td><td class="muted">Operativo solo in India, no EU</td></tr>
+          <tr><td class="name">Klub (IN)</td><td>RBF marketplace</td><td class="muted">Operativo solo in India</td></tr>
+          <tr><td class="name">Wayflyer (IE)</td><td>RBF balance sheet</td><td class="muted">Solo e-commerce, ticket grossi $50k+</td></tr>
+          <tr><td class="name">Mamacrowd (IT)</td><td>Equity crowdfunding</td><td class="muted">Equity, no marketing-specific, licenza Consob</td></tr>
+          <tr><td class="name">CrowdFundMe (IT)</td><td>Equity crowdfunding</td><td class="muted">Equity, ticket alti, lento, regolato</td></tr>
+          <tr><td class="name">Republic (US)</td><td>Equity + token crowdfunding</td><td class="muted">Licenza SEC, struttura complessa</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Vantaggi competitivi sostenibili</h3>
+      <ol>
+        <li><strong>Categoria-name proprio.</strong> "Crowdads" è territorio nostro. Se domina il vocabolario, domina il mercato.</li>
+        <li><strong>Mario AI stack.</strong> Generazione creativi automatica riduce il costo operativo del 60-70% rispetto a chi parte da zero.</li>
+        <li><strong>No licenza richiesta.</strong> Time-to-market 10x più rapido vs competitor regolati che devono attendere ECSP / VFA / SCA.</li>
+        <li><strong>Dual residence Dubai + Italia.</strong> Accesso a investitori del Golfo e dell'Eurozona con un solo brand.</li>
+        <li><strong>Network founder esistente.</strong> Qualitec ha contatti HNW Dubai e Verona pronti per la prima cohort.</li>
+      </ol>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="revenue" class="prose">
+      <h2>Modello revenue</h2>
+
+      <h3>Cinque stream di revenue</h3>
+
+      <h4>1. Setup fee da startup</h4>
+      <p>€500 - €2.000 una tantum per onboarding, due diligence, integrazione tracking. Atteso medio: €1.000 per startup attivata.</p>
+
+      <h4>2. Management fee</h4>
+      <p>5-10% del revenue share incassato dalla startup. Su una campagna esempio da €15.000 di revenue share, €1.500 a CROWADS. Atteso medio: 7%.</p>
+
+      <h4>3. Performance bonus</h4>
+      <p>50% del surplus quando ROAS supera 3x. Solo sul top 15-20% delle campagne. Atteso medio €500 per top performer.</p>
+
+      <h4>4. Float interest</h4>
+      <p>Il capitale in escrow genera interesse passivo, ~3% annuo. Su €5M di float = €150k/anno extra.</p>
+
+      <h4>5. White-label SaaS (futuro)</h4>
+      <p>Agenzie e fondi possono usare la piattaforma con i propri investitori. €5.000/mese + 1% volume gestito. Lancio target mese 18+.</p>
+
+      <h3>Unit economics — campagna media</h3>
+      <table class="compare">
+        <thead><tr><th>Metrica</th><th>Valore atteso</th></tr></thead>
+        <tbody>
+          <tr><td>Ad spend</td><td class="tnum">€10.000</td></tr>
+          <tr><td>Revenue generato 12 mesi (ROAS 4-6x)</td><td class="tnum">€40.000-€60.000</td></tr>
+          <tr><td>Revenue share captato da CROWADS (30% revenue)</td><td class="tnum">€12.000-€18.000</td></tr>
+          <tr><td>Take rate CROWADS (30-40% del revenue share)</td><td class="tnum">€4.000-€7.000</td></tr>
+          <tr><td>Distribuzione investitori (capitale + premio 15-30%)</td><td class="tnum">€11.500-€13.000</td></tr>
+          <tr><td><strong>Margine netto CROWADS / campagna</strong></td><td class="tnum"><strong>€3.000-€5.000</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h3>A regime — 1.000 campagne attive/anno</h3>
+      <ul>
+        <li>Revenue annua: <strong>€3M-€5M</strong></li>
+        <li>Costi operativi (team 10 persone + tech): <strong>€1,5M</strong></li>
+        <li>EBITDA: <strong>€1,5M-€3,5M</strong> (margin 40-60%)</li>
+      </ul>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="gtm" class="prose">
+      <h2>Go-to-market strategy</h2>
+
+      <h3>Fase 1 — Founders cohort (mese 1-3)</h3>
+      <p><strong>Lato startup</strong>: 3 piloti interni (Mario AI, Misticanza, TapTrack). Zero costo di acquisizione. Dimostrano il modello con dati reali.</p>
+      <p><strong>Lato investitori</strong>: 10-20 investitori dal network founder Alessandro Pavan (HNW Dubai + Verona). Ticket €1k-€50k. Soft launch privato.</p>
+      <p><strong>Obiettivo</strong>: chiudere 3 campagne pilota da €20-50k ciascuna, generare prime metriche reali pubblicabili.</p>
+
+      <h3>Fase 2 — Public launch (mese 4-9)</h3>
+      <p><strong>Lato startup</strong>: outreach via cold mail a 1.000 startup early-stage italiane e UAE che hanno chiuso seed negli ultimi 18 mesi. Conversion target 5% = 50 applicanti, 20 accettate.</p>
+      <p><strong>Lato investitori</strong>: content marketing su LinkedIn (Alexx personal brand), Twitter/X (English audience), partnership con community (Italian Tech Alliance, Dubai Angel Investors). Target: 500 investitori registrati, 200 attivi.</p>
+      <p><strong>Canali principali</strong>: LinkedIn content daily, newsletter "crowdads weekly" con metriche campagne live, partnership con AcceleratorIT / B Heroes / LVenture per deal flow startup, eventi Dubai (GITEX, STEP Conference), pubblicazioni su TechCrunch, Sifted, AGI, Wired Italia.</p>
+
+      <h3>Fase 3 — Scale (mese 10-24)</h3>
+      <p>Verticalizzazione su e-commerce, SaaS B2B, creator economy. Espansione in Spagna, Francia, Germania. Verticale UAE con deal flow locale e investitori del Golfo. Team: 3 ad-buyer senior, 2 customer success, 2 investor relations, 1 BD partnerships, 1 compliance, 1 CTO.</p>
+
+      <h3>Fase 4 — Category dominance (mese 25-36)</h3>
+      <p>Launch white-label per family office e agency. Acquisizione di 2-3 competitor minori (RBF locali). Exit ottimo: target acquirenti tipo Stripe, Klarna, Adyen, oppure major VC.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="finanziarie" class="prose">
+      <h2>Proiezioni finanziarie 36 mesi</h2>
+
+      <h3>Assunzioni chiave</h3>
+      <ul>
+        <li>Ad spend medio per campagna: €10.000</li>
+        <li>Revenue share medio captato da CROWADS: €4.500/campagna</li>
+        <li>Conversion rate da applicant a campagna chiusa: 30%</li>
+        <li>Tempo medio onboarding: 21 giorni</li>
+        <li>Ticket medio investitore: €2.500</li>
+      </ul>
+
+      <h3>Tabella proiezioni</h3>
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Metrica</th>
+            <th>Mese 6</th>
+            <th>Mese 12</th>
+            <th>Mese 24</th>
+            <th>Mese 36</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Campagne attive</td><td class="tnum">5</td><td class="tnum">30</td><td class="tnum">200</td><td class="tnum">1.000</td></tr>
+          <tr><td class="name">Investitori attivi</td><td class="tnum">50</td><td class="tnum">300</td><td class="tnum">1.500</td><td class="tnum">5.000</td></tr>
+          <tr><td class="name">Ad spend mensile</td><td class="tnum">€50k</td><td class="tnum">€300k</td><td class="tnum">€2M</td><td class="tnum">€10M</td></tr>
+          <tr><td class="name">Revenue mensile</td><td class="tnum">€25k</td><td class="tnum">€150k</td><td class="tnum">€900k</td><td class="tnum">€4,5M</td></tr>
+          <tr><td class="name">ARR (run rate)</td><td class="tnum">€300k</td><td class="tnum">€1,8M</td><td class="tnum">€10,8M</td><td class="tnum">€54M</td></tr>
+          <tr><td class="name">Costi mensili</td><td class="tnum">€15k</td><td class="tnum">€60k</td><td class="tnum">€200k</td><td class="tnum">€600k</td></tr>
+          <tr><td class="name">EBITDA mensile</td><td class="tnum">€10k</td><td class="tnum">€90k</td><td class="tnum">€700k</td><td class="tnum">€3,9M</td></tr>
+          <tr><td class="name">Team</td><td class="tnum">2</td><td class="tnum">5</td><td class="tnum">12</td><td class="tnum">30</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Capitale richiesto</h3>
+
+      <h4>Bootstrap path (consigliato)</h4>
+      <p>Mese 1-6: €5.000 self-funded (dominio, legale base, tools). Break-even mese 4-5. Autofinanziamento dal cash flow.</p>
+
+      <h4>Accelerated path (opzionale)</h4>
+      <p>Mese 6: seed round €500k-€1M per accelerare team e GTM. Valuation pre-money €5M (basata su 30 campagne attive + €300k ARR). Cap table 80/20.</p>
+
+      <h4>Scenario di base (raccomandato)</h4>
+      <p>Bootstrap fino al mese 12. Eventuale seed €500k-€1M solo se metriche lo giustificano. ARR mese 36: €8-12M. Exit potenziale €50-100M.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="team" class="prose">
+      <h2>Team & founder</h2>
+
+      <h3>Founder</h3>
+      <p><strong>Alessandro Pavan</strong> — CEO &amp; Founder<br>
+      Multi-venture entrepreneur: Qualitec Global FZE (Dubai), Piz-Pol (Verona), TapTrack, Misticanza, Pavan Group. Background in digital marketing, AI products, fintech. Network HNW attivo tra Dubai e Italia. Operating su doppia base Italia + Dubai.</p>
+
+      <h3>Asset operativo Mario AI</h3>
+      <p>Mario AI è la piattaforma AI proprietaria di Qualitec già operativa, con Studio Image (generazione creativi visuali), Studio Video (Higgsfield CLI), Studio Audio Pro, Sales CRM (outbound automation), Brain Server (knowledge base). Mario è il backbone tecnologico di CROWADS: riduce i costi operativi del 60-70% rispetto a costruire una piattaforma da zero.</p>
+
+      <h3>Hiring plan</h3>
+      <table class="compare">
+        <thead>
+          <tr><th>Mese</th><th>Ruolo</th><th>Costo annuo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tnum">3</td><td>Ad-buyer senior (1)</td><td class="tnum">€60k</td></tr>
+          <tr><td class="tnum">6</td><td>Investor relations (1)</td><td class="tnum">€50k</td></tr>
+          <tr><td class="tnum">9</td><td>Customer success startup</td><td class="tnum">€40k</td></tr>
+          <tr><td class="tnum">12</td><td>CTO / Lead engineer</td><td class="tnum">€80k</td></tr>
+          <tr><td class="tnum">15</td><td>Ad-buyer (2)</td><td class="tnum">€60k</td></tr>
+          <tr><td class="tnum">18</td><td>BD Partnerships</td><td class="tnum">€60k</td></tr>
+          <tr><td class="tnum">21</td><td>Compliance / Legal</td><td class="tnum">€80k</td></tr>
+          <tr><td class="tnum">24</td><td>Ad-buyer (3) + CS (2) + IR (2)</td><td class="tnum">€150k</td></tr>
+        </tbody>
+      </table>
+      <p>Tutto pagato da cash flow operativo, senza equity dilutive.</p>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="milestones" class="prose">
+      <h2>Milestones & roadmap</h2>
+
+      <h3>Q3 2026</h3>
+      <ul>
+        <li>Naming decision: <strong>CROWADS</strong></li>
+        <li>Dominio crowads.com + brand identity</li>
+        <li>Landing page live</li>
+        <li>MVP tecnico</li>
+        <li>Template legali RSM validati</li>
+        <li>3 campagne pilota chiuse</li>
+      </ul>
+
+      <h3>Q4 2026</h3>
+      <ul>
+        <li>10 campagne attive</li>
+        <li>100 investitori registrati</li>
+        <li>€100k ad spend gestito</li>
+        <li>Prime distribuzioni a investitori</li>
+      </ul>
+
+      <h3>Q1 2027</h3>
+      <ul>
+        <li>30 campagne attive</li>
+        <li>500 investitori registrati</li>
+        <li>€500k ad spend gestito</li>
+        <li>Break-even operativo</li>
+        <li>Primo press release pubblico</li>
+      </ul>
+
+      <h3>Q2-Q3 2027</h3>
+      <ul>
+        <li>Verticali SaaS + e-commerce dominanti</li>
+        <li>100 campagne attive</li>
+        <li>Auto-Pilot live</li>
+        <li>€2M ARR</li>
+      </ul>
+
+      <h3>Q4 2027 — Q4 2028</h3>
+      <ul>
+        <li>Espansione UE</li>
+        <li>White-label per agency e family office</li>
+        <li>500 campagne attive</li>
+        <li>€10M ARR</li>
+        <li>Eventuale seed round €1-5M se decidiamo di accelerare</li>
+      </ul>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="rischi" class="prose">
+      <h2>Rischi & mitigation</h2>
+
+      <table class="compare risk-tab">
+        <thead>
+          <tr>
+            <th style="width: 30%;">Rischio</th>
+            <th style="width: 12%;">Probabilità</th>
+            <th style="width: 12%;">Impatto</th>
+            <th>Mitigazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Regolatore EU reclassifica RSM come securities</td>
+            <td><span class="pill low">bassa</span></td>
+            <td><span class="pill high">alto</span></td>
+            <td>Pareri legali multi-giurisdizione, struttura modulare per pivot rapido a ECSP white-label</td>
+          </tr>
+          <tr>
+            <td>Meta / Google bannano ad account</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill med">medio</span></td>
+            <td>Multi-account redundant, warm-up controllato, MCC structure</td>
+          </tr>
+          <tr>
+            <td>Startup non performano (ROAS basso medio)</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill high">alto</span></td>
+            <td>Due diligence strict, diversificazione automatica, kill switch su ROAS &lt; 1</td>
+          </tr>
+          <tr>
+            <td>Competitor con licenza ECSP entra nello spazio</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill med">medio</span></td>
+            <td>First-mover advantage, category-naming, focus su segmento RBF micro (&lt;€100k) inaccessibile a player regolati</td>
+          </tr>
+          <tr>
+            <td>Recessione globale riduce ad spend</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill high">alto</span></td>
+            <td>Diversificazione vertical su healthcare, education, recession-proof</td>
+          </tr>
+          <tr>
+            <td>Frode investitori (riciclaggio)</td>
+            <td><span class="pill low">bassa</span></td>
+            <td><span class="pill high">alto</span></td>
+            <td>KYC + AML check obbligatori via Sumsub / Onfido</td>
+          </tr>
+          <tr>
+            <td>Frode startup (manipolazione revenue attribution)</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill med">medio</span></td>
+            <td>Tracking server-side, audit periodico checkout</td>
+          </tr>
+          <tr>
+            <td>Costo acquisizione investitori sale</td>
+            <td><span class="pill med">media</span></td>
+            <td><span class="pill med">medio</span></td>
+            <td>Content marketing + community + referral program</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <hr class="section-rule">
+
+    <section id="chiusura" class="prose">
+      <h2>Chiusura</h2>
+      <p>CROWADS è un'opportunità rara: un mercato in forte crescita, un differenziale legale netto, un asset tecnologico proprietario (Mario AI), un founder con network attivo Dubai-Italia, zero competitor diretti nella nostra geografia target.</p>
+
+      <p>Il modello bootstrap permette di partire con un investimento inferiore ai €10.000 e arrivare a break-even in 4-5 mesi. Il rischio finanziario è minimo, il potenziale upside è di tre o quattro ordini di grandezza (€5k iniziali → €5-50M ARR in 36 mesi).</p>
+
+      <h3>Prossimi step operativi (settimana 1)</h3>
+      <ol>
+        <li>Registrare il dominio <strong>crowads.com</strong></li>
+        <li>Pubblicare la landing page (già pronta)</li>
+        <li>Validare il template di contratto RSM con avvocato fintech (€2-3k)</li>
+        <li>Onboarding delle 3 startup pilota</li>
+        <li>Primo outreach a 10 investitori del network</li>
+      </ol>
+
+      <div class="doc-foot">
+        Documento confidenziale · uso interno e investitori NDA-firmati · © 2026 Qualitec FZE — Dubai
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="brand">CROWADS<span class="dot"></span></a>
+      <div class="mono" style="margin-top: 0.5rem;">By Qualitec FZE · Dubai · Verona</div>
+    </div>
+    <nav class="footer-links">
+      <a href="/landing/">Landing</a>
+      <a href="/business-plan/">Business plan</a>
+      <a href="/regolamento/">Regolamento</a>
+      <a href="/spec/">Engineering spec</a>
+      <a href="mailto:hello@crowads.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/assets/doc.js"></script>
+</body>
+</html>

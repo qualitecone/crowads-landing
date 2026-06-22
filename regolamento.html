@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CROWADS · Regolamento della piattaforma e termini d'uso · v1.0 · 21 giugno 2026">
+<title>CROWADS — Regolamento</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .doc-header {
+    padding: clamp(3rem, 6vw, 5rem) 0 var(--s-7);
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: var(--s-7);
+  }
+  .doc-header .label {
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--accent);
+    margin-bottom: var(--s-4);
+  }
+  .doc-header h1 {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 600;
+    letter-spacing: -0.028em;
+    line-height: 1.05;
+    margin: 0 0 var(--s-3);
+    text-wrap: balance;
+  }
+  .doc-header .meta {
+    display: flex;
+    gap: var(--s-5);
+    flex-wrap: wrap;
+    margin-top: var(--s-5);
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+  }
+  .legal-warning {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: var(--s-5);
+    margin: var(--s-7) 0;
+    font-size: var(--t-small);
+    line-height: 1.6;
+    color: var(--accent-ink);
+    max-width: 70ch;
+  }
+  .legal-warning strong { color: var(--accent); font-weight: 600; }
+
+  .article-num {
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--accent);
+    margin-bottom: var(--s-2);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  .prose h2 {
+    margin-top: var(--s-8);
+    padding-top: var(--s-7);
+    border-top: 1px solid var(--hairline);
+  }
+  .prose h2:first-of-type { border-top: 0; padding-top: 0; }
+
+  .clause {
+    margin-top: var(--s-5);
+    padding-left: var(--s-4);
+    border-left: 1px solid var(--hairline);
+  }
+  .clause .num {
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+    margin-bottom: var(--s-2);
+  }
+
+  .defs dl {
+    margin: var(--s-5) 0;
+  }
+  .defs dt {
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: var(--s-4);
+    font-size: var(--t-small);
+  }
+  .defs dd {
+    margin: 0 0 0 0;
+    color: var(--ink-2);
+    font-size: var(--t-small);
+    line-height: 1.6;
+  }
+
+  .doc-foot {
+    margin-top: var(--s-9);
+    padding-top: var(--s-6);
+    border-top: 1px solid var(--hairline);
+    font-family: var(--font-mono);
+    font-size: var(--t-tiny);
+    color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">CROWADS<span class="dot"></span></a>
+    <nav class="nav-links">
+      <a href="landing.html">Landing</a>
+      <a href="business-plan.html">Business plan</a>
+      <a href="regolamento.html" aria-current="page">Regolamento</a>
+      <a href="spec-tecnica.html">Engineering</a>
+      <a href="landing.html#cta" class="nav-cta">Early access</a>
+    </nav>
+  </div>
+</header>
+
+<button class="toc-mobile-trigger" aria-label="Apri indice">TOC</button>
+
+<div class="toc-drawer">
+  <div class="toc-drawer-panel">
+    <div class="toc-label">Indice — Regolamento</div>
+    <ol class="toc-list">
+      <li><a href="#art-1">Art. 1 · Definizioni</a></li>
+      <li><a href="#art-2">Art. 2 · Oggetto del servizio</a></li>
+      <li><a href="#art-3">Art. 3 · Iscrizione e KYC</a></li>
+      <li><a href="#art-4">Art. 4 · Ruoli, diritti e obblighi</a></li>
+      <li><a href="#art-5">Art. 5 · Funzionamento delle Campagne</a></li>
+      <li><a href="#art-6">Art. 6 · Contratto RSM</a></li>
+      <li><a href="#art-7">Art. 7 · Gestione fondi ed escrow</a></li>
+      <li><a href="#art-8">Art. 8 · Esecuzione delle Ads</a></li>
+      <li><a href="#art-9">Art. 9 · Attribuzione del Revenue</a></li>
+      <li><a href="#art-10">Art. 10 · Distribuzione pagamenti</a></li>
+      <li><a href="#art-11">Art. 11 · Fee e commissioni</a></li>
+      <li><a href="#art-12">Art. 12 · Ritiro fondi</a></li>
+      <li><a href="#art-13">Art. 13 · Sospensione campagne</a></li>
+      <li><a href="#art-14">Art. 14 · Risoluzione controversie</a></li>
+      <li><a href="#art-15">Art. 15 · Privacy GDPR</a></li>
+      <li><a href="#art-16">Art. 16 · Limitazione responsabilità</a></li>
+      <li><a href="#art-17">Art. 17 · Forza maggiore</a></li>
+      <li><a href="#art-18">Art. 18 · Giurisdizione</a></li>
+      <li><a href="#art-19">Art. 19 · Modifiche</a></li>
+      <li><a href="#art-20">Art. 20 · Disposizioni finali</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="doc-layout">
+
+  <aside class="toc-aside">
+    <div class="toc-label">Regolamento v1.0</div>
+    <ol class="toc-list">
+      <li><a href="#art-1">Art. 1 · Definizioni</a></li>
+      <li><a href="#art-2">Art. 2 · Oggetto del servizio</a></li>
+      <li><a href="#art-3">Art. 3 · Iscrizione e KYC</a></li>
+      <li><a href="#art-4">Art. 4 · Ruoli, diritti e obblighi</a></li>
+      <li><a href="#art-5">Art. 5 · Funzionamento Campagne</a></li>
+      <li><a href="#art-6">Art. 6 · Contratto RSM</a></li>
+      <li><a href="#art-7">Art. 7 · Escrow</a></li>
+      <li><a href="#art-8">Art. 8 · Esecuzione Ads</a></li>
+      <li><a href="#art-9">Art. 9 · Attribuzione Revenue</a></li>
+      <li><a href="#art-10">Art. 10 · Pagamenti</a></li>
+      <li><a href="#art-11">Art. 11 · Fee</a></li>
+      <li><a href="#art-12">Art. 12 · Ritiro fondi</a></li>
+      <li><a href="#art-13">Art. 13 · Sospensione</a></li>
+      <li><a href="#art-14">Art. 14 · Controversie</a></li>
+      <li><a href="#art-15">Art. 15 · GDPR</a></li>
+      <li><a href="#art-16">Art. 16 · Responsabilità</a></li>
+      <li><a href="#art-17">Art. 17 · Forza maggiore</a></li>
+      <li><a href="#art-18">Art. 18 · Giurisdizione</a></li>
+      <li><a href="#art-19">Art. 19 · Modifiche</a></li>
+      <li><a href="#art-20">Art. 20 · Disposizioni finali</a></li>
+    </ol>
+  </aside>
+
+  <article>
+    <header class="doc-header">
+      <div class="label">Regolamento &amp; Termini d'uso · v1.0</div>
+      <h1>Regolamento della Piattaforma CROWADS</h1>
+      <div class="meta">
+        <span>Versione 1.0</span><span>·</span>
+        <span>Pubblicato 21 giugno 2026</span><span>·</span>
+        <span>Entrata in vigore alla registrazione</span><span>·</span>
+        <span>Operatore: Qualitec FZE</span>
+      </div>
+
+      <div class="legal-warning">
+        <strong>Avviso legale fondamentale.</strong> CROWADS non è una piattaforma di crowdfunding, non è un intermediario finanziario, non è una banca, non è un istituto di pagamento, non offre strumenti finanziari e non raccoglie pubblico risparmio. CROWADS è una piattaforma di performance marketing aggregato che opera tramite contratti bilaterali di "Revenue Share Marketing" (RSM). I capitali destinati alle Campagne sono soggetti a rischio totale di perdita; non è garantito alcun rendimento. La sottoscrizione di una Campagna implica accettazione del rischio commerciale.
+      </div>
+    </header>
+
+    <section id="art-1" class="prose defs">
+      <div class="article-num">Articolo 1</div>
+      <h2>Definizioni</h2>
+      <p>Ai fini del presente Regolamento, i seguenti termini hanno il significato indicato:</p>
+      <dl>
+        <dt>Piattaforma</dt>
+        <dd>Il sito web crowads.com e tutti i servizi tecnologici resi disponibili da Qualitec FZE.</dd>
+        <dt>Operatore</dt>
+        <dd>Qualitec FZE, società di diritto degli Emirati Arabi Uniti.</dd>
+        <dt>Utente</dt>
+        <dd>Chiunque sia registrato sulla Piattaforma.</dd>
+        <dt>Investitore</dt>
+        <dd>Utente persona fisica o giuridica che destina capitale a una Campagna.</dd>
+        <dt>Startup</dt>
+        <dd>Utente persona giuridica beneficiaria della Campagna, che riceve il servizio di marketing performance e firma il contratto RSM.</dd>
+        <dt>Campagna</dt>
+        <dd>Progetto specifico di performance marketing oggetto di raccolta capitale, con durata, budget e obiettivi misurabili predefiniti.</dd>
+        <dt>Pool</dt>
+        <dd>Insieme dei capitali raggruppati da più Investitori per finanziare una singola Campagna.</dd>
+        <dt>Ad Spend</dt>
+        <dd>Importo speso dall'Operatore in pubblicità su piattaforme terze (Meta, Google, TikTok, ecc.) per conto della Campagna.</dd>
+        <dt>Revenue Share Marketing (RSM)</dt>
+        <dd>Contratto bilaterale tra Operatore e Startup secondo cui la Startup paga una percentuale del fatturato attribuito alla Campagna per un periodo definito.</dd>
+        <dt>Revenue Attribuito</dt>
+        <dd>Importo del fatturato della Startup direttamente riconducibile alla Campagna attraverso meccanismi tecnici di tracking (UTM, pixel, API).</dd>
+        <dt>Premio Performance</dt>
+        <dd>Importo aggiuntivo riconosciuto agli Investitori in caso di performance positiva della Campagna.</dd>
+        <dt>Escrow</dt>
+        <dd>Deposito vincolato presso conto bancario dell'Operatore, separato dal patrimonio operativo, in cui sono custoditi i capitali degli Investitori fino al loro impiego in Ad Spend.</dd>
+        <dt>Auto-Pilot</dt>
+        <dd>Modalità di allocazione automatica del capitale dell'Investitore su Campagne attive secondo profilo di rischio.</dd>
+        <dt>KYC</dt>
+        <dd>Know Your Customer, procedura di verifica identità.</dd>
+        <dt>AML</dt>
+        <dd>Anti-Money Laundering, normativa antiriciclaggio.</dd>
+        <dt>GDPR</dt>
+        <dd>Regolamento UE 2016/679 sulla protezione dei dati.</dd>
+      </dl>
+    </section>
+
+    <section id="art-2" class="prose">
+      <div class="article-num">Articolo 2</div>
+      <h2>Oggetto del servizio</h2>
+      <p>La Piattaforma offre un servizio tecnologico di <strong>aggregazione di capitali destinati all'esecuzione di campagne di performance marketing</strong> per conto di Startup terze.</p>
+      <p>L'Operatore agisce in qualità di agenzia di performance marketing rispetto alla Startup, fornitore di servizi tecnologici rispetto all'Investitore, agente esecutore rispetto alle piattaforme pubblicitarie terze.</p>
+      <p>L'Operatore <strong>non agisce in qualità di</strong> intermediario finanziario, istituto di pagamento (PSP / EMI), banca, azienda di investimento, gestore di fondi, consulente finanziario.</p>
+      <p>Il capitale destinato dall'Investitore costituisce <em>pre-pagamento di un servizio specifico vincolato</em> (esecuzione di una Campagna determinata), non investimento finanziario. Il Revenue Attribuito che ritorna all'Investitore costituisce <em>restituzione del pre-pagamento maggiorata di un premio commerciale</em>, non rendimento di investimento finanziario.</p>
+    </section>
+
+    <section id="art-3" class="prose">
+      <div class="article-num">Articolo 3</div>
+      <h2>Iscrizione e KYC</h2>
+
+      <h3>3.1 Requisiti Investitore</h3>
+      <ul>
+        <li>Persona fisica maggiorenne (18+) o persona giuridica costituita</li>
+        <li>Capacità di agire piena</li>
+        <li>Residenza in uno dei Paesi supportati (EU, UK, UAE, USA, Svizzera al lancio)</li>
+        <li>Email valida</li>
+        <li>Completamento KYC</li>
+      </ul>
+
+      <h3>3.2 Procedura KYC Investitore</h3>
+      <p>L'Investitore deve fornire: documento di identità valido (carta identità, passaporto o patente); prova di residenza (utenza, estratto conto bancario o certificato anagrafico degli ultimi 90 giorni); dichiarazione di provenienza fondi sopra €5.000/anno cumulativi. Per persone giuridiche: visura camerale, statuto e identificazione del beneficiario effettivo.</p>
+      <p>KYC eseguito tramite provider terzo certificato (Sumsub, Onfido o equivalente). Tempo medio approvazione: 24-72 ore lavorative.</p>
+
+      <h3>3.3 Requisiti Startup</h3>
+      <ul>
+        <li>Persona giuridica regolarmente costituita</li>
+        <li>Prodotto o servizio operativo</li>
+        <li>Sito web funzionante con tracking attivo</li>
+        <li>Integrazione con almeno un provider di pagamento</li>
+        <li>Margine lordo dichiarato superiore al 20%</li>
+        <li>Disponibilità a fornire dati finanziari verificabili</li>
+        <li>Sede legale in Paese supportato</li>
+      </ul>
+
+      <h3>3.4 Due diligence Startup</h3>
+      <p>Verifica identità founder e beneficiari, verifiche camerali, review del sito web e traffic analytics (SimilarWeb, Ahrefs), verifica revenue ultimi 12 mesi (estratto conto bancario o report Stripe/Shopify), intervista founder (call video 30-60 minuti), compliance check su liste sanzioni internazionali.</p>
+      <p>L'Operatore si riserva diritto di rifiutare qualsiasi candidatura <strong>a propria discrezione e senza obbligo di motivazione</strong>.</p>
+
+      <h3>3.5 Sospensione e revoca</h3>
+      <p>L'Operatore può sospendere o revocare l'account in caso di: violazione del Regolamento, comportamento fraudolento o tentativo di, mancata risposta a richieste di chiarimento entro 30 giorni, inattività superiore a 24 mesi, provvedimenti di autorità giudiziarie o regolamentari.</p>
+    </section>
+
+    <section id="art-4" class="prose">
+      <div class="article-num">Articolo 4</div>
+      <h2>Ruoli, diritti e obblighi</h2>
+
+      <h3>4.1 Investitore — Diritti</h3>
+      <ul>
+        <li>Visualizzare tutte le Campagne aperte e accessibili al proprio profilo</li>
+        <li>Allocare capitale su una o più Campagne (manualmente o via Auto-Pilot)</li>
+        <li>Accedere a dashboard real-time con metriche di performance</li>
+        <li>Ricevere reportistica mensile</li>
+        <li>Ricevere distribuzione del Premio Performance e restituzione capitale secondo termini contrattuali</li>
+        <li>Esportare propri dati e fatture</li>
+        <li>Cancellare account (con clausole vedi Art. 12)</li>
+      </ul>
+
+      <h3>4.2 Investitore — Obblighi</h3>
+      <ul>
+        <li>Fornire dati veritieri e aggiornati</li>
+        <li>Mantenere riservate credenziali di accesso</li>
+        <li>Non impiegare proventi di attività illecite</li>
+        <li>Pagare le imposte dovute sul Premio Performance (responsabilità individuale)</li>
+        <li>Non condividere accesso al proprio account con terzi</li>
+        <li>Non manipolare metriche di campagna (clic falsi, traffico non genuino)</li>
+      </ul>
+
+      <h3>4.3 Startup — Diritti</h3>
+      <ul>
+        <li>Pubblicare proposta di Campagna previa approvazione</li>
+        <li>Ricevere esecuzione professionale del marketing performance</li>
+        <li>Accedere a dashboard con metriche, lead generati, conversioni</li>
+        <li>Ricevere review periodica del proprio funnel e creativi</li>
+        <li>Mantenere proprietà piena del brand, prodotti e dati clienti</li>
+      </ul>
+
+      <h3>4.4 Startup — Obblighi</h3>
+      <ul>
+        <li>Fornire dati veritieri sulla propria attività</li>
+        <li>Fornire entro 7 giorni dall'attivazione: brand assets, copy ads approvato, buyer persona, accesso read-only a CRM e checkout, pixel di tracking installati</li>
+        <li>Mantenere prodotto/servizio coerente con dichiarato per tutta la durata</li>
+        <li>Versare il Revenue Share secondo modalità del contratto RSM</li>
+        <li>Non manipolare o nascondere transazioni attribuibili alla Campagna</li>
+        <li>Comunicare entro 48h eventi materiali (cambio prezzo, fuori stock, chiusura)</li>
+        <li>Sottoscrivere il contratto RSM (vedi Art. 6)</li>
+      </ul>
+
+      <h3>4.5 Operatore — Diritti</h3>
+      <ul>
+        <li>Curare la selezione delle Startup (gatekeeping)</li>
+        <li>Eseguire le Ads con propria discrezionalità tecnica</li>
+        <li>Rifiutare qualsiasi Campagna o Investitore senza obbligo di motivazione</li>
+        <li>Sospendere o terminare una Campagna per motivazioni operative o di compliance</li>
+        <li>Modificare il Regolamento previa comunicazione 30 giorni</li>
+        <li>Trattenere fee secondo Art. 11</li>
+      </ul>
+
+      <h3>4.6 Operatore — Obblighi</h3>
+      <ul>
+        <li>Custodire i capitali degli Investitori in escrow separato</li>
+        <li>Eseguire le Ads con buona fede e best effort</li>
+        <li>Distribuire i pagamenti agli Investitori secondo termini contrattuali</li>
+        <li>Garantire trasparenza tramite dashboard e reportistica</li>
+        <li>Rispettare GDPR e normativa privacy</li>
+        <li>Notificare tempestivamente eventi materiali</li>
+      </ul>
+    </section>
+
+    <section id="art-5" class="prose">
+      <div class="article-num">Articolo 5</div>
+      <h2>Funzionamento delle Campagne</h2>
+
+      <h3>5.1 Apertura della Campagna</h3>
+      <p>La Startup propone una Campagna specificando: budget target (€10.000 - €500.000); obiettivi misurabili (CAC target, ROAS target, lead target); geografia; durata attiva ads (1-3 mesi); periodo di attribuzione revenue (12 mesi); percentuale di revenue share (20-40%); Premio Performance (10-25%); materiali brand e creativi richiesti.</p>
+      <p>L'Operatore valida la proposta entro 7 giorni lavorativi.</p>
+
+      <h3>5.2 Raccolta capitale</h3>
+      <p>La Campagna resta aperta agli Investitori per un periodo definito (tipicamente 30 giorni o fino al raggiungimento del budget). Capitali custoditi in escrow su conto bancario dedicato. Investitori possono cancellare la sottoscrizione fino a 7 giorni prima del lancio ads. Se la Campagna non raggiunge il 50% del target, viene cancellata e i capitali restituiti integralmente.</p>
+
+      <h3>5.3 Lancio ads</h3>
+      <p>Al raggiungimento del budget: l'Operatore verifica completezza assets startup, approva i creativi finali, ads partono entro 7 giorni, inizia conteggio attribuzione revenue.</p>
+
+      <h3>5.4 Esecuzione e ottimizzazione</h3>
+      <p>Durante la Campagna: ads ruotano con A/B test continuo, daily reporting su dashboard, possibilità di pause su underperformance (ROAS sotto soglia), ottimizzazione targeting e bidding senza variazione budget.</p>
+
+      <h3>5.5 Chiusura Campagna ads</h3>
+      <p>A fine periodo: ad spend si interrompe, inizia o continua il periodo di attribuzione revenue (12 mesi totali dal lancio), reportistica mensile distribuzioni.</p>
+
+      <h3>5.6 Liquidazione finale</h3>
+      <p>Al termine del periodo di attribuzione: reportistica finale completa, distribuzione ultimo round di pagamenti, chiusura contabile della Campagna.</p>
+    </section>
+
+    <section id="art-6" class="prose">
+      <div class="article-num">Articolo 6</div>
+      <h2>Contratto Revenue Share Marketing (RSM)</h2>
+
+      <h3>6.1 Natura del contratto</h3>
+      <p>Il contratto RSM è stipulato tra <strong>Operatore (Qualitec FZE)</strong> e <strong>Startup</strong>. Gli Investitori non sono parte del contratto RSM, ma traggono beneficio economico attraverso la sottoscrizione della Campagna sulla Piattaforma.</p>
+
+      <h3>6.2 Causale contrattuale</h3>
+      <p>Il contratto RSM ha come oggetto: <em>acquisto da parte della Startup di un servizio di performance marketing pagato in base ai risultati conseguiti</em>. Non costituisce in alcun modo prestito, investimento finanziario, cessione di partecipazioni, operazione di raccolta del risparmio.</p>
+
+      <h3>6.3 Clausole essenziali</h3>
+      <ul>
+        <li>Durata: periodo di attribuzione revenue (tipicamente 12 mesi)</li>
+        <li>Percentuale di revenue share: definita per ogni Campagna (20-40%)</li>
+        <li>Base di calcolo: revenue attribuito secondo metodologia Art. 9</li>
+        <li>Tempistica pagamenti: mensile, entro il 15 di ogni mese</li>
+        <li>Penalità per ritardo: 2% mensile sull'importo dovuto</li>
+        <li>Right of inspection: audit dei dati finanziari attribuibili</li>
+        <li>Decadenza: in caso di fallimento Startup, salvo procedura concorsuale</li>
+      </ul>
+
+      <h3>6.4 Garanzia personale founder</h3>
+      <p>La Startup presenta garanzia personale del founder/legale rappresentante per il versamento del revenue share. La garanzia ha funzione di deterrente vs frode (manipolazione revenue): non copre il rischio commerciale ordinario.</p>
+    </section>
+
+    <section id="art-7" class="prose">
+      <div class="article-num">Articolo 7</div>
+      <h2>Gestione fondi ed escrow</h2>
+
+      <h3>7.1 Escrow</h3>
+      <p>I capitali degli Investitori sono custoditi in conto bancario dedicato CROWADS presso istituto regolamentato UE. Separato dal patrimonio operativo, soggetto a riconciliazione settimanale, auditabile annualmente.</p>
+
+      <h3>7.2 Modalità di versamento</h3>
+      <p>Bonifico bancario SEPA, carta di credito/debito via processor regolato (Stripe), crypto-fiat (USDC/USDT via processor regolato; opzionale). Versamenti accreditati entro 1-3 giorni lavorativi.</p>
+
+      <h3>7.3 Utilizzo dei fondi</h3>
+      <p>I fondi in escrow possono essere utilizzati esclusivamente per esecuzione delle Ads della Campagna sottoscritta e costi tecnici direttamente legati.</p>
+      <p><strong>Non possono essere utilizzati per</strong>: costi operativi generali dell'Operatore, pagamento di altre Campagne, investimenti in strumenti finanziari, prestiti a terzi.</p>
+
+      <h3>7.4 Mancato utilizzo</h3>
+      <p>Se la Campagna non viene lanciata entro 60 giorni dal raggiungimento del budget, i fondi sono restituiti integralmente entro ulteriori 14 giorni.</p>
+    </section>
+
+    <section id="art-8" class="prose">
+      <div class="article-num">Articolo 8</div>
+      <h2>Esecuzione delle Ads</h2>
+
+      <h3>8.1 Account ads</h3>
+      <p>L'Operatore gestisce direttamente le Ads tramite account intestati a Qualitec FZE su: Meta Ads (Facebook, Instagram, WhatsApp, Threads), Google Ads (Search, Display, YouTube, Performance Max), TikTok for Business, LinkedIn Ads (B2B), X/Twitter Ads (discrezionale), Pinterest, Snapchat (discrezionale).</p>
+      <p>Gli account sono <strong>proprietà esclusiva dell'Operatore</strong>. La Startup non ha accesso diretto. Gli assets pubblicitari restano proprietà della Startup, ma l'Operatore ne ha licenza d'uso non esclusiva per la durata della Campagna.</p>
+
+      <h3>8.2 Discrezionalità tecnica</h3>
+      <p>L'Operatore ha piena discrezionalità tecnica su scelta piattaforme, allocation budget tra piattaforme, targeting audience (con vincoli buyer persona), bidding strategy, schedule, A/B testing creativi, pause/restart ottimizzazione. Le scelte sono fatte in buona fede per massimizzare il ROAS.</p>
+
+      <h3>8.3 Conformità policy piattaforme</h3>
+      <p>L'Operatore garantisce conformità con policy delle piattaforme pubblicitarie. In caso di banning account, l'Operatore ripristina l'esecuzione su account alternativo. In caso di impossibilità tecnica, i fondi residui sono restituiti pro-rata.</p>
+
+      <h3>8.4 Categorie escluse</h3>
+      <p>Non sono accettate Campagne per prodotti illegali nelle giurisdizioni target, servizi finanziari non regolati, gioco d'azzardo, adult content/dating ad alto rischio, armi/droghe/tabacco, schemi piramidali o MLM, servizi medici non scientifici, servizi politici partigiani.</p>
+    </section>
+
+    <section id="art-9" class="prose">
+      <div class="article-num">Articolo 9</div>
+      <h2>Attribuzione e tracciamento del Revenue</h2>
+
+      <h3>9.1 Sistema di tracking — quattro layer</h3>
+      <p><strong>Layer 1 — Click tracking</strong>: UTM parameters unici per ogni ad/campagna, click tracker proprietario CROWADS.</p>
+      <p><strong>Layer 2 — Conversion tracking</strong>: pixel CROWADS sul sito Startup, pixel native delle piattaforme (Meta Pixel, Google Tag, TikTok Pixel), GTM custom events.</p>
+      <p><strong>Layer 3 — Revenue confirmation</strong>: Stripe webhook su evento <code>charge.succeeded</code> con metadata UTM, Shopify webhook su <code>order/create</code>, WooCommerce custom webhook, SDK CROWADS custom per checkout proprietari.</p>
+      <p><strong>Layer 4 — Attribution model</strong>: last-paid-click attribution (default), view-through window opzionale (1-7 giorni configurabile), multi-touch disponibile su richiesta.</p>
+
+      <h3>9.2 Periodo di attribuzione</h3>
+      <p>Il Revenue è attribuito alla Campagna se l'utente è entrato sul sito via UTM tracciato, l'acquisto avviene entro il periodo di attribuzione (30-90 giorni dal click), il pagamento è effettivamente incassato (non solo ordinato), non è soggetto a refund entro 14 giorni.</p>
+
+      <h3>9.3 Esclusioni</h3>
+      <p>Non sono attribuiti alla Campagna: refund e chargeback; tasse e IVA (attribuzione su revenue netto IVA); costi di transazione (Stripe fee); vendite a clienti pre-esistenti (acquisiti prima del lancio, identificati via email); vendite organiche dimostrabili (traffic diretto senza UTM).</p>
+
+      <h3>9.4 Right of audit</h3>
+      <p>L'Operatore può auditare i dati finanziari della Startup attribuibili alla Campagna, richiedere accesso temporaneo a Stripe/Shopify per verifica, richiedere supporto di un revisore terzo a spese proprie. La Startup collabora entro 15 giorni dalla richiesta.</p>
+
+      <h3>9.5 Risoluzione discordanze</h3>
+      <p>Tentativo di conciliazione bonaria entro 30 giorni. Nomina di un esperto terzo indipendente (Big4 o equivalente). La decisione dell'esperto è vincolante. Costi a carico della parte soccombente.</p>
+    </section>
+
+    <section id="art-10" class="prose">
+      <div class="article-num">Articolo 10</div>
+      <h2>Distribuzione dei pagamenti</h2>
+
+      <h3>10.1 Frequenza</h3>
+      <p>Le distribuzioni agli Investitori avvengono <strong>mensilmente, il 20 di ogni mese</strong>, riferite al mese precedente.</p>
+
+      <h3>10.2 Modalità di calcolo</h3>
+      <p>Per ogni Campagna e mese:</p>
+      <ol>
+        <li>Si calcola Revenue Attribuito del mese</li>
+        <li>Si applica % di revenue share del contratto RSM</li>
+        <li>Si sottraggono le fee CROWADS (vedi Art. 11)</li>
+        <li>Importo netto distribuibile = Revenue Share - Fee</li>
+        <li>Distribuzione pro-rata tra Investitori in base alla quota di capitale conferito</li>
+      </ol>
+
+      <h3>10.3 Esempio calcolo</h3>
+      <pre>Mese X — Campagna esempio:
+- Revenue Attribuito netto:      €5.000
+- Revenue share contratto (30%): €1.500
+- Fee CROWADS (7%):              €105
+- Distribuibile Investitori:     €1.395
+
+Investitore A (50% pool):  €697,50
+Investitore B (30% pool):  €418,50
+Investitore C (20% pool):  €279,00</pre>
+
+      <h3>10.4 Modalità di pagamento</h3>
+      <ul>
+        <li><strong>Sotto €50 cumulativi</strong>: accumulati nel wallet della Piattaforma, prelevabili su richiesta</li>
+        <li><strong>Sopra €50</strong>: bonifico SEPA automatico il 20 del mese</li>
+        <li><strong>Crypto (USDC)</strong>: disponibile su richiesta, fee gas a carico del richiedente</li>
+      </ul>
+
+      <h3>10.5 Trattamento fiscale</h3>
+      <p>Le distribuzioni costituiscono restituzione del capitale + premio commerciale, non rendimento finanziario. L'Investitore è responsabile della propria dichiarazione fiscale secondo la giurisdizione di residenza. L'Operatore fornisce annualmente un riepilogo a fini fiscali, ma non opera ritenute d'acconto (salvo obbligo di legge sopravvenuto).</p>
+    </section>
+
+    <section id="art-11" class="prose">
+      <div class="article-num">Articolo 11</div>
+      <h2>Fee e commissioni</h2>
+
+      <h3>11.1 Fee a carico Investitore</h3>
+      <ul>
+        <li>Iscrizione: gratuita</li>
+        <li>Sottoscrizione Campagna: gratuita</li>
+        <li>Distribuzione mensile via SEPA: gratuita</li>
+        <li>Distribuzione crypto: fee gas a carico richiedente</li>
+        <li>Withdrawal anticipato wallet: gratuita (per importi sopra €50)</li>
+      </ul>
+
+      <h3>11.2 Fee a carico Startup</h3>
+      <ul>
+        <li><strong>Onboarding fee</strong>: €500 - €2.000 una tantum, pagata prima del lancio</li>
+        <li><strong>Management fee</strong>: 5-10% del Revenue Share captato (variabile per tier startup)</li>
+        <li><strong>Performance bonus</strong>: 50% del surplus quando ROAS supera 3x</li>
+      </ul>
+
+      <h3>11.3 Fee comuni</h3>
+      <ul>
+        <li>Cancellazione anticipata da Investitore (post-funding, pre-lancio): 5% del capitale ritirato</li>
+        <li>Risoluzione anticipata contratto RSM da Startup: penale = 30% del Revenue Share atteso non maturato</li>
+      </ul>
+
+      <h3>11.4 Trasparenza fee</h3>
+      <p>Tutte le fee sono visualizzate in dashboard prima di qualsiasi sottoscrizione. Eventuali modifiche future si applicano solo a nuove Campagne (mai retroattivamente).</p>
+    </section>
+
+    <section id="art-12" class="prose">
+      <div class="article-num">Articolo 12</div>
+      <h2>Ritiro fondi e cancellazione</h2>
+
+      <h3>12.1 Investitore — ritiro pre-funding</h3>
+      <p>Prima che la Campagna raggiunga il budget target: ritiro 100% gratuito, accreditato entro 7 giorni lavorativi.</p>
+
+      <h3>12.2 Investitore — ritiro post-funding pre-lancio</h3>
+      <p>Tra raggiungimento budget e lancio ads: ritiro possibile entro 7 giorni con fee 5% del capitale.</p>
+
+      <h3>12.3 Investitore — ritiro post-lancio</h3>
+      <p>Una volta lanciata la Campagna: <strong>ritiro non possibile</strong> fino al termine del periodo di attribuzione. Eccezioni: fallimento accertato Startup (restituzione fondi residui non spesi); cancellazione Campagna da Operatore (restituzione fondi residui); frode dimostrata Startup (restituzione fondi residui + risarcimento da garanzia personale).</p>
+
+      <h3>12.4 Investitore — cancellazione account</h3>
+      <p>Possibile in qualsiasi momento se non si hanno Campagne attive. In presenza di Campagne attive, l'account resta aperto fino a chiusura ultima Campagna.</p>
+
+      <h3>12.5 Startup — recesso</h3>
+      <p>Una volta lanciata, la Startup non può recedere unilateralmente. Eccezioni: forza maggiore documentata (vedi Art. 17); mutuo accordo con Operatore; banning irrevocabile account ads su tutte le piattaforme.</p>
+    </section>
+
+    <section id="art-13" class="prose">
+      <div class="article-num">Articolo 13</div>
+      <h2>Sospensione e rimozione campagne</h2>
+
+      <h3>13.1 Sospensione automatica</h3>
+      <p>L'Operatore può sospendere una Campagna in caso di: ROAS sotto soglia minima per 7 giorni consecutivi; banning account ads; anomalia traffic (bot, click fraud sospetto); verifica compliance straordinaria. La sospensione non comporta restituzione fondi già spesi.</p>
+
+      <h3>13.2 Rimozione definitiva</h3>
+      <p>L'Operatore può rimuovere una Campagna in caso di: violazione grave del Regolamento, frode accertata, decisione autorità giudiziaria, mancata collaborazione protratta Startup (oltre 30 giorni), modifica sostanziale del prodotto/servizio offerto vs dichiarato.</p>
+      <p>In caso di rimozione, i fondi residui non spesi sono restituiti pro-rata entro 30 giorni.</p>
+    </section>
+
+    <section id="art-14" class="prose">
+      <div class="article-num">Articolo 14</div>
+      <h2>Risoluzione controversie</h2>
+
+      <h3>14.1 Negoziazione bonaria</h3>
+      <p>Qualsiasi controversia deve essere preceduta da tentativo di negoziazione bonaria per 30 giorni dalla notifica scritta.</p>
+
+      <h3>14.2 Mediazione</h3>
+      <p>In caso di insuccesso, sottoposizione a mediazione presso organismo riconosciuto (ADGM Arbitration Centre, ADR Center Milano, o equivalente concordato).</p>
+
+      <h3>14.3 Arbitrato (default)</h3>
+      <p>Esaurita la mediazione, la controversia è sottoposta ad arbitrato secondo regolamento <strong>ADGM Arbitration Centre</strong> (sede Abu Dhabi), in lingua inglese, da arbitro unico nominato dalle parti o, in difetto, dall'Istituzione. La decisione è vincolante e inappellabile.</p>
+
+      <h3>14.4 Foro competente residuale</h3>
+      <p>Per controversie non arbitrabili (azioni cautelari, esecuzioni forzate), foro competente esclusivo è ADGM Courts, Abu Dhabi.</p>
+
+      <h3>14.5 Esclusione class action</h3>
+      <p>Gli Utenti rinunciano espressamente a partecipare a class action contro l'Operatore.</p>
+    </section>
+
+    <section id="art-15" class="prose">
+      <div class="article-num">Articolo 15</div>
+      <h2>Privacy e trattamento dati (GDPR)</h2>
+
+      <h3>15.1 Titolare del trattamento</h3>
+      <p>Qualitec FZE, sede ADGM Abu Dhabi, titolare del trattamento ai sensi del GDPR (per Utenti UE) e normative locali equivalenti.</p>
+
+      <h3>15.2 Dati raccolti</h3>
+      <p>Identificativi (nome, cognome, email, telefono, documento identità); bancari (IBAN, fatture); finanziari (importi sottoscritti, distribuzioni); comportamentali (log accessi, preferenze Auto-Pilot, storico Campagne); tecnici (IP, browser, device fingerprint); KYC/AML (documenti caricati per verifica).</p>
+
+      <h3>15.3 Finalità del trattamento</h3>
+      <p>Fornitura servizio della Piattaforma, adempimenti KYC/AML, adempimenti fiscali e contabili, comunicazioni transazionali, marketing previo consenso esplicito, sicurezza piattaforma e prevenzione frode, analytics aggregate anonimizzate.</p>
+
+      <h3>15.4 Base giuridica</h3>
+      <p>Esecuzione contratto (art. 6.1.b GDPR); obbligo legale (art. 6.1.c) per KYC/AML/fiscali; legittimo interesse (art. 6.1.f) per security e analytics aggregate; consenso (art. 6.1.a) per marketing diretto.</p>
+
+      <h3>15.5 Periodo di conservazione</h3>
+      <p>Dati account attivo: per tutta la durata account. Dati KYC/AML: 10 anni dalla chiusura account. Dati fiscali: 10 anni. Log accessi: 24 mesi. Dati marketing: fino a revoca consenso.</p>
+
+      <h3>15.6 Diritti dell'interessato</h3>
+      <p>L'Utente ha diritto a: accesso (art. 15 GDPR), rettifica (art. 16), cancellazione (art. 17, con limiti per obblighi legali), limitazione (art. 18), portabilità (art. 20), opposizione (art. 21), reclamo a autorità di controllo. Richieste a <a href="mailto:privacy@crowads.com">privacy@crowads.com</a>, risposta entro 30 giorni.</p>
+
+      <h3>15.7 Trasferimenti extra-UE</h3>
+      <p>Dati di Utenti UE possono essere trasferiti a UAE (server Qualitec) e USA (cloud provider) sulla base di Standard Contractual Clauses approvate da Commissione UE.</p>
+
+      <h3>15.8 Sicurezza</h3>
+      <p>Crittografia at-rest (AES-256), in-transit (TLS 1.3), 2FA obbligatorio, penetration test annuali, backup giornalieri geo-distributed, target ISO 27001 entro 24 mesi.</p>
+    </section>
+
+    <section id="art-16" class="prose">
+      <div class="article-num">Articolo 16</div>
+      <h2>Limitazione responsabilità</h2>
+
+      <h3>16.1 Esclusione garanzie performance</h3>
+      <p>L'Operatore non garantisce risultato positivo di alcuna Campagna, rendimento minimo, restituzione integrale del capitale conferito, performance di una specifica Startup. L'Investitore accetta espressamente il <strong>rischio di perdita totale del capitale conferito</strong>.</p>
+
+      <h3>16.2 Limitazione importo</h3>
+      <p>Salvo dolo o colpa grave, la responsabilità complessiva dell'Operatore verso un singolo Utente è limitata al minore tra: importo totale fee versate dall'Utente nei 12 mesi precedenti, €10.000.</p>
+
+      <h3>16.3 Esclusioni</h3>
+      <p>L'Operatore non risponde di: decisioni delle piattaforme pubblicitarie terze; fallimento della Startup; modifiche normative sopravvenute; forza maggiore (Art. 17); interruzioni dovute a fornitori terzi (cloud provider, banche); hacking di account utente per negligenza dell'Utente.</p>
+
+      <h3>16.4 Indemnification</h3>
+      <p>L'Utente si impegna a tenere indenne l'Operatore da qualsiasi richiesta di terzi derivante da violazioni del Regolamento da parte dell'Utente.</p>
+    </section>
+
+    <section id="art-17" class="prose">
+      <div class="article-num">Articolo 17</div>
+      <h2>Forza maggiore</h2>
+      <p>Costituiscono forza maggiore eventi straordinari e imprevedibili al di fuori del controllo ragionevole delle parti: guerre, attacchi terroristici, disordini civili; pandemie, emergenze sanitarie; calamità naturali; cyberattacchi su infrastrutture critiche; modifiche normative di emergenza; sospensioni o disservizi prolungati di fornitori critici (banche, cloud, payment processor).</p>
+      <p>In caso di forza maggiore, le obbligazioni sono sospese per la durata dell'evento. Se l'evento si protrae oltre 90 giorni, ciascuna parte può recedere senza penali.</p>
+    </section>
+
+    <section id="art-18" class="prose">
+      <div class="article-num">Articolo 18</div>
+      <h2>Giurisdizione e legge applicabile</h2>
+
+      <h3>18.1 Legge applicabile</h3>
+      <p>Il Regolamento è governato dalla legge degli <strong>Abu Dhabi Global Market (ADGM)</strong>, che integra elementi di common law inglese. Per Utenti residenti UE sono applicabili le disposizioni inderogabili di consumer protection della legge di residenza.</p>
+
+      <h3>18.2 Lingua</h3>
+      <p>Versione vincolante: <strong>inglese</strong>. Versioni in altre lingue per comodità; in caso di discrepanza prevale la versione inglese.</p>
+
+      <h3>18.3 Severability</h3>
+      <p>Se una clausola fosse dichiarata invalida da un'autorità competente, le restanti clausole restano in vigore.</p>
+    </section>
+
+    <section id="art-19" class="prose">
+      <div class="article-num">Articolo 19</div>
+      <h2>Modifiche al Regolamento</h2>
+      <p>L'Operatore può modificare il Regolamento previo preavviso di <strong>30 giorni</strong> via email e notifica in dashboard. Modifiche di natura tecnica o di compliance possono entrare in vigore immediatamente.</p>
+      <p>L'Utente che non accetta le modifiche può recedere senza penali entro 30 giorni dalla notifica.</p>
+      <p>Le modifiche <strong>non si applicano retroattivamente</strong> a Campagne già attive: queste continuano a essere governate dal Regolamento vigente al momento della sottoscrizione.</p>
+    </section>
+
+    <section id="art-20" class="prose">
+      <div class="article-num">Articolo 20</div>
+      <h2>Disposizioni finali</h2>
+
+      <h3>20.1 Comunicazioni</h3>
+      <p>Comunicazioni ufficiali avvengono via: email registrata, notifiche in dashboard. Per comunicazioni formali: raccomandata con ricevuta di ritorno o PEC.</p>
+      <p>Indirizzo Operatore:<br>
+      <strong>Qualitec FZE</strong><br>
+      Abu Dhabi Global Market (ADGM)<br>
+      Al Maryah Island, Abu Dhabi, UAE<br>
+      Email: <a href="mailto:legal@crowads.com">legal@crowads.com</a></p>
+
+      <h3>20.2 Accettazione integrale</h3>
+      <p>L'iscrizione alla Piattaforma e la sottoscrizione di qualsiasi Campagna costituiscono accettazione integrale del Regolamento.</p>
+
+      <h3>20.3 Documentazione complementare</h3>
+      <p>Il Regolamento è da leggere congiuntamente a: Privacy Policy, Cookie Policy, Contratto Revenue Share Marketing (modello per Startup), Termini di servizio specifici per Campagna.</p>
+
+      <h3>20.4 Versionamento</h3>
+      <p>Ogni modifica genera nuova versione numerata e archiviata. Le versioni storiche restano consultabili a <code>crowads.com/legal/archive</code>.</p>
+
+      <div class="doc-foot">
+        Versione 1.0 · 21 giugno 2026 · © 2026 Qualitec FZE — Tutti i diritti riservati
+      </div>
+    </section>
+
+  </article>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <a href="/" class="brand">CROWADS<span class="dot"></span></a>
+      <div class="mono" style="margin-top: 0.5rem;">By Qualitec FZE · Dubai · Verona</div>
+    </div>
+    <nav class="footer-links">
+      <a href="landing.html">Landing</a>
+      <a href="business-plan.html">Business plan</a>
+      <a href="regolamento.html">Regolamento</a>
+      <a href="spec-tecnica.html">Engineering spec</a>
+      <a href="mailto:hello@crowads.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/doc.js"></script>
+</body>
+</html>

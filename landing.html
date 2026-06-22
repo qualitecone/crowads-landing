@@ -1,0 +1,1651 @@
+<!-- STYLE CARD: Liquid Cinematic × Bento Modern Tech hybrid -->
+<!DOCTYPE html>
+<html lang="it" data-lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0A0B1F">
+<meta name="description" content="CROWADS — La prima piattaforma di crowdads. Capitale collettivo che diventa ads tracciate. Revenue misurato. Distribuzione automatica.">
+<meta property="og:title" content="CROWADS — Il crowdfunding delle ads">
+<meta property="og:description" content="Pool collettivo di investitori che finanzia ads tracciate, revenue share automatico.">
+<title>CROWADS · Il crowdfunding delle ads</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          midnight: { 950: '#05060F', 900: '#0A0B1F', 800: '#10122C', 700: '#181B3D', 600: '#22264F' },
+          ink:      { 50: '#F4F4F5', 100: '#E4E4E7', 200: '#A1A1AA', 300: '#71717A', 400: '#52525B', 500: '#3D3D47' },
+          accent:   { DEFAULT: '#FF2D55', hi: '#FF4970', soft: 'rgba(255,45,85,0.10)', glow: 'rgba(255,45,85,0.55)' },
+          amber:    '#FFB547',
+          aurora:   { 1: '#FF2D55', 2: '#B41CFF', 3: '#3C7BFF', 4: '#00E5FF' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          display: ['"Instrument Serif"', 'Georgia', 'serif'],
+          mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  /* ════════════ BASE ════════════ */
+  html, body { background: #05060F; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #F4F4F5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    cursor: none;
+  }
+  @media (hover: none), (pointer: coarse) { body { cursor: auto; } .cursor { display: none !important; } }
+
+  ::selection { background: #FF2D55; color: #fff; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #05060F; }
+  ::-webkit-scrollbar-thumb { background: #181B3D; border-radius: 4px; }
+
+  /* ════════════ TYPOGRAPHY ════════════ */
+  .display { font-weight: 700; letter-spacing: -0.045em; line-height: 0.92; }
+  .display-tight { letter-spacing: -0.055em; }
+  .serif { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+
+  /* ════════════ CUSTOM CURSOR ════════════ */
+  .cursor {
+    position: fixed; top: 0; left: 0; width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #FF2D55;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: transform 220ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .cursor-ring {
+    position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+    border: 1px solid rgba(255,45,85,0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 600ms cubic-bezier(0.16,1,0.3,1), width 250ms, height 250ms;
+  }
+  a:hover ~ .cursor, button:hover ~ .cursor, .hoverable:hover ~ .cursor { transform: translate(-50%,-50%) scale(2); }
+
+  /* ════════════ AURORA BG ════════════ */
+  .aurora {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(at 18% 18%, rgba(255,45,85,0.35) 0px, transparent 50%),
+      radial-gradient(at 78% 22%, rgba(180,28,255,0.22) 0px, transparent 50%),
+      radial-gradient(at 50% 60%, rgba(60,123,255,0.20) 0px, transparent 50%),
+      radial-gradient(at 28% 88%, rgba(255,181,71,0.15) 0px, transparent 45%);
+    filter: blur(2px);
+  }
+  .aurora-anim {
+    background-size: 300% 300%;
+    animation: auroraShift 28s ease infinite;
+  }
+  @keyframes auroraShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+  }
+
+  .grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 78%);
+  }
+
+  .noise {
+    position: absolute; inset: 0; pointer-events: none;
+    opacity: 0.04; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ════════════ HERO ════════════ */
+  .hero-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    z-index: 1; opacity: 0.85;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+  }
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2400&q=80');
+    background-size: cover; background-position: center;
+    opacity: 0.20;
+    filter: contrast(1.15) saturate(0.7) hue-rotate(-10deg);
+  }
+  .hero-fade {
+    position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background: linear-gradient(180deg, transparent 0%, #05060F 92%);
+  }
+
+  /* ════════════ SPLIT REVEAL ════════════ */
+  .split-reveal .char,
+  .split-reveal-lite .char {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+  .split-reveal .word { display: inline-block; overflow: hidden; padding-bottom: 0.08em; }
+
+  /* ════════════ GLASS / CARDS ════════════ */
+  .glass {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .glass-strong {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .card-tilt {
+    transition: transform 320ms cubic-bezier(0.16,1,0.3,1),
+                border-color 320ms cubic-bezier(0.16,1,0.3,1),
+                box-shadow 320ms;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .card-tilt:hover { border-color: rgba(255,45,85,0.35); box-shadow: 0 0 40px -8px rgba(255,45,85,0.18); }
+
+  .glow-pink { box-shadow: 0 0 120px -20px rgba(255,45,85,0.45); }
+
+  /* ════════════ AURORA TEXT (allowed: it's a single signature element, not a default) ════════════ */
+  .aurora-text {
+    background: linear-gradient(120deg, #FF2D55 0%, #B41CFF 35%, #3C7BFF 65%, #00E5FF 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: auroraShift 8s ease infinite;
+  }
+
+  /* ════════════ SVG FLOW ════════════ */
+  @keyframes flowDash { to { stroke-dashoffset: -16; } }
+  @keyframes pulseNode {
+    0%,100% { opacity: 0.4; r: 4; }
+    50%     { opacity: 1;   r: 7; }
+  }
+  .flow-line { stroke-dasharray: 4 4; animation: flowDash 1.6s linear infinite; }
+  .flow-node { animation: pulseNode 2.4s ease-in-out infinite; }
+  .flow-node.d2 { animation-delay: 0.4s; }
+  .flow-node.d3 { animation-delay: 0.8s; }
+
+  /* ════════════ TERMINAL ════════════ */
+  .terminal {
+    font-family: 'Geist Mono', ui-monospace, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  @media (min-width: 640px) { .terminal { font-size: 14px; } }
+  .terminal-line { opacity: 0; transform: translateY(6px); will-change: transform, opacity; }
+  .t-key { color: #A1A1AA; }
+  .t-val { color: #F4F4F5; }
+  .t-num { color: #FFB547; font-variant-numeric: tabular-nums; }
+  .t-acc { color: #FF4970; }
+  .t-com { color: #52525B; }
+
+  /* ════════════ MARQUEE ════════════ */
+  .marquee-track {
+    display: flex; width: max-content;
+    animation: marquee 70s linear infinite;
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  /* ════════════ PULSE DOT ════════════ */
+  @keyframes pingFast { 75%,100% { transform: scale(2.4); opacity: 0; } }
+  .ping-dot::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 50%; background: #FF2D55;
+    animation: pingFast 2s cubic-bezier(0,0,0.2,1) infinite;
+  }
+
+  /* ════════════ COUNT ════════════ */
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* ════════════ FAQ ════════════ */
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  .plus { transition: transform 220ms ease-out, color 220ms ease-out; display: inline-block; }
+  details[open] summary .plus { transform: rotate(45deg); color: #FF4970; }
+
+  /* ════════════ COHORT IMG ════════════ */
+  .cohort-img {
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center;
+    border-radius: 14px 14px 0 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+  .cohort-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(10,11,31,0.6) 100%);
+  }
+
+  /* ════════════ SCROLL PROGRESS ════════════ */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 2px; z-index: 60; background: rgba(255,255,255,0.06);
+  }
+  .scroll-progress-bar {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, #FF2D55, #B41CFF, #3C7BFF, #00E5FF);
+    transition: width 80ms linear;
+  }
+
+  /* ════════════ ROADMAP ════════════ */
+  .roadmap-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .roadmap-row:last-child { border-bottom: 0; }
+  @media (max-width: 600px) {
+    .roadmap-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.25rem 0; }
+  }
+
+  /* ════════════ MOBILE TWEAKS ════════════ */
+  @media (max-width: 640px) {
+    .display { letter-spacing: -0.04em; }
+    section { padding-top: 4.5rem !important; padding-bottom: 4.5rem !important; }
+  }
+
+  /* ════════════ REDUCED MOTION ════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0ms !important; transition-duration: 0ms !important; }
+    .hero-canvas, .cursor, .cursor-ring { display: none !important; }
+    body { cursor: auto; }
+  }
+
+  /* ════════════ LANG TOGGLE ════════════ */
+  [data-it], [data-en] { display: none; }
+  html[data-lang="it"] [data-it] { display: revert; }
+  html[data-lang="en"] [data-en] { display: revert; }
+  /* Inline (for short fragments inside other tags) */
+  span[data-it], span[data-en] { display: none; }
+  html[data-lang="it"] span[data-it] { display: inline; }
+  html[data-lang="en"] span[data-en] { display: inline; }
+  /* Buttons / block elements */
+  html[data-lang="it"] [data-it].block { display: block; }
+  html[data-lang="en"] [data-en].block { display: block; }
+
+  .lang-toggle {
+    display: inline-flex; gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 999px; padding: 3px;
+    font-family: 'Geist Mono', monospace; font-size: 11px;
+  }
+  .lang-toggle button {
+    background: transparent; border: 0; color: #A1A1AA;
+    padding: 5px 12px; border-radius: 999px; cursor: pointer;
+    transition: all 200ms;
+  }
+  .lang-toggle button.active { background: #FF2D55; color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- Custom cursor (desktop only) -->
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-midnight-950/70 border-b border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-baseline gap-1.5 hoverable">
+      <span class="font-bold text-[17px] tracking-tight">CROWADS</span>
+      <span class="relative inline-block w-2 h-2 rounded-full bg-accent ping-dot"></span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-5 text-sm text-ink-100">
+      <a href="#categoria" class="hover:text-white transition hoverable"><span data-it>Categoria</span><span data-en>Category</span></a>
+      <a href="#modello" class="hover:text-white transition hoverable"><span data-it>Modello</span><span data-en>Model</span></a>
+      <a href="#flusso" class="hover:text-accent-hi transition hoverable font-medium"><span data-it>Flusso soldi</span><span data-en>Money flow</span></a>
+      <a href="#mario" class="hover:text-white transition hoverable">Mario AI</a>
+      <a href="#cohort" class="hover:text-white transition hoverable">Cohort</a>
+      <a href="#docs" class="hover:text-white transition hoverable"><span data-it>Documenti</span><span data-en>Docs</span></a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <div class="lang-toggle" role="tablist">
+        <button data-set-lang="it" class="active" aria-pressed="true">IT</button>
+        <button data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#cta" class="bg-white text-midnight-900 hover:bg-accent hover:text-white transition text-sm font-medium px-4 py-2 rounded-full hoverable hidden sm:inline-flex">
+        <span data-it>Accesso early</span><span data-en>Early access</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="relative pt-28 sm:pt-40 pb-24 sm:pb-32 overflow-hidden min-h-[100vh] flex items-center">
+  <div class="hero-photo"></div>
+  <div class="aurora aurora-anim"></div>
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="grid-bg"></div>
+  <div class="noise"></div>
+  <div class="hero-fade"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full">
+
+    <div class="flex items-center gap-3 mb-8 font-mono text-[11px] sm:text-xs text-ink-100">
+      <span class="relative inline-flex w-2 h-2">
+        <span class="absolute inset-0 rounded-full bg-accent animate-ping opacity-60"></span>
+        <span class="relative w-2 h-2 rounded-full bg-accent"></span>
+      </span>
+      <span data-it>Founders cohort · Q3 2026 · solo su invito · founding by Ale &amp; Joe</span>
+      <span data-en>Founders cohort · Q3 2026 · invite only · founded by Ale &amp; Joe</span>
+    </div>
+
+    <h1 class="display text-[clamp(2.8rem,11vw,8rem)] split-reveal max-w-7xl">
+      <span data-it class="block">
+        <span class="block">Il crowdfunding</span>
+        <span class="serif font-normal block aurora-text">delle ads.</span>
+      </span>
+      <span data-en class="block">
+        <span class="block">Crowdfunding</span>
+        <span class="serif font-normal block aurora-text">for ads.</span>
+      </span>
+    </h1>
+
+    <p class="mt-10 text-lg sm:text-2xl text-ink-100 max-w-3xl leading-snug font-light">
+      <span data-it>
+        Investitori mettono capitale in pool.
+        <span class="text-white font-medium">CROWADS</span> lo spende solo in ads tracciate per startup curate.
+        Revenue misurato. Distribuzione automatica.
+        <span class="text-ink-200 block sm:inline">Non sei crowdfunding, non sei VC, non sei agenzia.</span>
+      </span>
+      <span data-en>
+        Investors pool capital.
+        <span class="text-white font-medium">CROWADS</span> spends it on tracked ads for curated startups.
+        Revenue, measured. Distribution, automatic.
+        <span class="text-ink-200 block sm:inline">Not crowdfunding, not VC, not an agency.</span>
+      </span>
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="#cta" class="group hoverable inline-flex items-center gap-2 bg-white text-midnight-900 hover:bg-accent hover:text-white transition px-7 py-4 rounded-full font-medium text-[15px]">
+        <span data-it>Entra nella founders cohort</span>
+        <span data-en>Join the founders cohort</span>
+        <svg class="w-4 h-4 transition group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+      <a href="#modello" class="hoverable inline-flex items-center gap-2 border border-white/15 hover:border-accent text-white transition px-7 py-4 rounded-full text-[15px]">
+        <span data-it>Vedi come funziona</span>
+        <span data-en>See the model</span>
+      </a>
+    </div>
+
+    <div class="mt-16 sm:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.06] border border-white/[0.06] rounded-2xl overflow-hidden">
+      <div class="p-5 sm:p-6 bg-midnight-950/80 backdrop-blur flex flex-col gap-1">
+        <span class="font-mono text-[10px] sm:text-[11px] text-ink-200">
+          <span data-it>TICKET MINIMO</span><span data-en>MIN TICKET</span>
+        </span>
+        <span class="display text-2xl sm:text-3xl text-white tnum" data-counter="100" data-prefix="€">€0</span>
+      </div>
+      <div class="p-5 sm:p-6 bg-midnight-950/80 backdrop-blur flex flex-col gap-1">
+        <span class="font-mono text-[10px] sm:text-[11px] text-ink-200">
+          <span data-it>FONDI TRACCIATI</span><span data-en>FUNDS TRACKED</span>
+        </span>
+        <span class="display text-2xl sm:text-3xl text-white tnum" data-counter="100" data-suffix="%">0%</span>
+      </div>
+      <div class="p-5 sm:p-6 bg-midnight-950/80 backdrop-blur flex flex-col gap-1">
+        <span class="font-mono text-[10px] sm:text-[11px] text-ink-200">
+          <span data-it>ATTRIBUZIONE</span><span data-en>ATTRIBUTION</span>
+        </span>
+        <span class="display text-2xl sm:text-3xl text-white tnum" data-counter="12" data-suffix="">0</span><span class="text-xs text-ink-200 -mt-1"><span data-it>mesi</span><span data-en>months</span></span>
+      </div>
+      <div class="p-5 sm:p-6 bg-midnight-950/80 backdrop-blur flex flex-col gap-1">
+        <span class="font-mono text-[10px] sm:text-[11px] text-ink-200">
+          <span data-it>LICENZA RICHIESTA</span><span data-en>LICENSE NEEDED</span>
+        </span>
+        <span class="display text-2xl sm:text-3xl text-white tnum" data-counter="0">0</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 text-ink-200 font-mono text-[10px]">
+      <span data-it>SCORRI</span><span data-en>SCROLL</span>
+      <svg class="w-4 h-6 animate-bounce" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="2" width="12" height="20" rx="6"/>
+        <line x1="8" y1="7" x2="8" y2="12"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MARQUEE ═══════════════════ -->
+<section class="py-7 border-y border-white/[0.06] overflow-hidden bg-midnight-900/60">
+  <div class="marquee-track">
+    <div class="flex items-center gap-10 px-6 font-mono text-sm text-ink-200 whitespace-nowrap">
+      <span>META</span><span class="text-accent">/</span>
+      <span>GOOGLE ADS</span><span class="text-accent">/</span>
+      <span>TIKTOK BUSINESS</span><span class="text-accent">/</span>
+      <span>STRIPE CONNECT</span><span class="text-accent">/</span>
+      <span>SHOPIFY WEBHOOKS</span><span class="text-accent">/</span>
+      <span>SUMSUB KYC</span><span class="text-accent">/</span>
+      <span>MARIO AI BACKBONE</span><span class="text-accent">/</span>
+      <span>RETICOLO STACK</span><span class="text-accent">/</span>
+      <span>ESCROW BANCARIO REGOLATO</span><span class="text-accent">/</span>
+    </div>
+    <div class="flex items-center gap-10 px-6 font-mono text-sm text-ink-200 whitespace-nowrap" aria-hidden="true">
+      <span>META</span><span class="text-accent">/</span>
+      <span>GOOGLE ADS</span><span class="text-accent">/</span>
+      <span>TIKTOK BUSINESS</span><span class="text-accent">/</span>
+      <span>STRIPE CONNECT</span><span class="text-accent">/</span>
+      <span>SHOPIFY WEBHOOKS</span><span class="text-accent">/</span>
+      <span>SUMSUB KYC</span><span class="text-accent">/</span>
+      <span>MARIO AI BACKBONE</span><span class="text-accent">/</span>
+      <span>RETICOLO STACK</span><span class="text-accent">/</span>
+      <span>ESCROW BANCARIO REGOLATO</span><span class="text-accent">/</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CATEGORIA (Venn) ═══════════════════ -->
+<section id="categoria" class="py-24 sm:py-32 relative">
+  <div class="aurora opacity-40"></div>
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <div class="lg:col-span-6 order-2 lg:order-1">
+        <span class="font-mono text-xs text-accent-hi">
+          <span data-it>stiamo inventando una categoria</span>
+          <span data-en>inventing a category</span>
+        </span>
+        <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4 reveal-on-scroll">
+          <span data-it>Si chiama <span class="serif font-normal aurora-text">crowdads.</span></span>
+          <span data-en>We call it <span class="serif font-normal aurora-text">crowdads.</span></span>
+        </h2>
+        <p class="mt-6 text-lg text-ink-100 leading-relaxed max-w-xl">
+          <span data-it>Tra crowdfunding e venture capital c'era uno spazio vuoto: finanziare <em class="text-white not-italic font-medium">solo</em> il marketing, in modo misurabile, con ritorno legato a metriche oggettive.</span>
+          <span data-en>Between crowdfunding and venture capital there was an empty space: funding <em class="text-white not-italic font-medium">only</em> marketing, measurably, with returns tied to objective metrics.</span>
+        </p>
+        <p class="mt-4 text-ink-200 leading-relaxed max-w-xl">
+          <span data-it>Lo abbiamo battezzato. Brand: <strong class="text-white font-medium">CROWADS</strong>. Categoria: <strong class="text-accent-hi font-medium">crowdads</strong>.</span>
+          <span data-en>We named it. Brand: <strong class="text-white font-medium">CROWADS</strong>. Category: <strong class="text-accent-hi font-medium">crowdads</strong>.</span>
+        </p>
+
+        <dl class="mt-10 space-y-4 text-sm">
+          <div class="flex gap-4 items-baseline border-t border-white/[0.06] pt-4">
+            <dt class="font-mono text-xs text-ink-200 w-32 shrink-0">CROWDFUNDING</dt>
+            <dd class="text-ink-100">
+              <span data-it>Soldi alla startup. Zero garanzie sull'uso. 60% non rispetta milestone.</span>
+              <span data-en>Money to startup. Zero usage guarantees. 60% miss milestones.</span>
+            </dd>
+          </div>
+          <div class="flex gap-4 items-baseline border-t border-white/[0.06] pt-4">
+            <dt class="font-mono text-xs text-ink-200 w-32 shrink-0">VENTURE CAPITAL</dt>
+            <dd class="text-ink-100">
+              <span data-it>Solo HNW con €100k+. Ticket grossi, esiti binari, dilution.</span>
+              <span data-en>HNW only, €100k+. Big tickets, binary outcomes, dilution.</span>
+            </dd>
+          </div>
+          <div class="flex gap-4 items-baseline border-t border-white/[0.06] pt-4">
+            <dt class="font-mono text-xs text-accent-hi w-32 shrink-0">CROWADS</dt>
+            <dd class="text-white">
+              <span data-it>Capitale collettivo da €100. Solo in ads tracciate. Revenue share misurato.</span>
+              <span data-en>Pool from €100. Only tracked ads. Measured revenue share.</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="lg:col-span-6 order-1 lg:order-2 relative aspect-square max-w-lg mx-auto">
+        <svg viewBox="0 0 500 500" class="w-full h-full">
+          <defs>
+            <radialGradient id="cf-grad"><stop offset="0%" stop-color="#52525B" stop-opacity="0.6"/><stop offset="100%" stop-color="#181B3D" stop-opacity="0.2"/></radialGradient>
+            <radialGradient id="vc-grad"><stop offset="0%" stop-color="#FFB547" stop-opacity="0.5"/><stop offset="100%" stop-color="#181B3D" stop-opacity="0.2"/></radialGradient>
+            <radialGradient id="pm-grad"><stop offset="0%" stop-color="#FF2D55" stop-opacity="0.7"/><stop offset="100%" stop-color="#181B3D" stop-opacity="0.2"/></radialGradient>
+          </defs>
+          <g style="mix-blend-mode: screen;">
+            <circle cx="180" cy="200" r="150" fill="url(#cf-grad)" stroke="#71717A" stroke-width="1"/>
+            <circle cx="320" cy="200" r="150" fill="url(#vc-grad)" stroke="#FFB547" stroke-width="1"/>
+            <circle cx="250" cy="330" r="150" fill="url(#pm-grad)" stroke="#FF4970" stroke-width="1.5"/>
+          </g>
+          <g font-family="Geist Mono" font-size="12" fill="#A1A1AA">
+            <text x="100" y="130" text-anchor="middle">crowdfunding</text>
+            <text x="400" y="130" text-anchor="middle">VC / equity</text>
+            <text x="250" y="455" text-anchor="middle">performance ads</text>
+          </g>
+          <g>
+            <text x="250" y="260" text-anchor="middle" fill="#F4F4F5" font-family="Inter" font-size="22" font-weight="700">CROWADS</text>
+            <text x="250" y="285" text-anchor="middle" fill="#FF4970" font-size="11" font-family="Geist Mono" font-weight="500">crowdads category</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MODELLO BENTO ═══════════════════ -->
+<section id="modello" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-16">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>il modello · come funziona</span>
+        <span data-en>the model · how it works</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+        <span data-it>I capitali raggiungono le startup <span class="serif aurora-text font-normal">attraverso le ads</span>, mai con un bonifico.</span>
+        <span data-en>Capital reaches startups <span class="serif aurora-text font-normal">through ads</span>, never through wire transfers.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4">
+
+      <article class="card-tilt md:col-span-7 md:row-span-2 glass rounded-2xl p-7 sm:p-10 relative overflow-hidden group">
+        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700"
+             style="background: radial-gradient(at 30% 20%, rgba(255,45,85,0.20) 0px, transparent 50%);"></div>
+        <div class="relative">
+          <span class="font-mono text-xs text-accent-hi">01 · <span data-it>fondi tracciati</span><span data-en>tracked funds</span></span>
+          <h3 class="display text-2xl sm:text-3xl mt-3 text-white">
+            <span data-it>I soldi vanno da un escrow bancario direttamente negli ad account che CROWADS gestisce.</span>
+            <span data-en>Money goes from bank escrow straight into ad accounts CROWADS runs.</span>
+          </h3>
+          <p class="mt-4 text-ink-100 leading-relaxed">
+            <span data-it>La startup riceve clienti, non capitale. L'uso improprio è strutturalmente impossibile. Ogni euro è auditabile in tempo reale.</span>
+            <span data-en>Startups get customers, not cash. Misuse is structurally impossible. Every euro is auditable live.</span>
+          </p>
+
+          <svg viewBox="0 0 460 120" class="mt-8 w-full max-w-md" aria-hidden="true">
+            <defs>
+              <marker id="ar1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L8,4 L0,8 z" fill="#71717A"/>
+              </marker>
+            </defs>
+            <g font-family="Geist Mono" font-size="10" fill="#A1A1AA">
+              <rect x="2" y="44" width="80" height="34" rx="8" fill="none" stroke="#52525B"/>
+              <text x="42" y="64" text-anchor="middle">investor</text>
+              <rect x="160" y="44" width="80" height="34" rx="8" fill="none" stroke="#52525B"/>
+              <text x="200" y="64" text-anchor="middle">escrow</text>
+              <rect x="320" y="44" width="100" height="34" rx="8" fill="none" stroke="#FF2D55"/>
+              <text x="370" y="64" text-anchor="middle" fill="#FF4970">ads tracked</text>
+            </g>
+            <g fill="none" stroke="#71717A" stroke-width="1.2" marker-end="url(#ar1)">
+              <line class="flow-line" x1="84" y1="61" x2="156" y2="61"/>
+              <line class="flow-line" x1="242" y1="61" x2="316" y2="61"/>
+            </g>
+            <circle class="flow-node" cx="42" cy="61" r="3" fill="#F4F4F5"/>
+            <circle class="flow-node d2" cx="200" cy="61" r="3" fill="#F4F4F5"/>
+            <circle class="flow-node d3" cx="370" cy="61" r="3" fill="#FF4970"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="card-tilt md:col-span-5 glass rounded-2xl p-7 sm:p-8 relative overflow-hidden">
+        <span class="font-mono text-xs text-accent-hi">02 · <span data-it>misurato</span><span data-en>measured</span></span>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="display text-6xl sm:text-7xl text-white tnum" data-counter="100" data-suffix="%">0%</span>
+        </div>
+        <p class="mt-3 text-ink-100 text-[15px] leading-relaxed">
+          <span data-it>del revenue è attribuito via UTM, pixel, Stripe e Shopify webhooks. Dashboard live: CAC e ROAS in tempo reale. Le distribuzioni sono matematica, non ottimismo.</span>
+          <span data-en>of revenue attributed via UTM, pixels, Stripe and Shopify webhooks. Live dashboards: CAC and ROAS real-time. Distributions are math, not optimism.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt md:col-span-5 glass rounded-2xl p-7 sm:p-8 relative overflow-hidden">
+        <span class="font-mono text-xs text-accent-hi">03 · <span data-it>commerciale</span><span data-en>commercial</span></span>
+        <h3 class="display text-xl sm:text-2xl mt-3 text-white">
+          <span data-it>Pre-paghi un servizio marketing. Ricevi una revenue share.</span>
+          <span data-en>Pre-pay a marketing service. Get a revenue share.</span>
+        </h3>
+        <p class="mt-4 text-ink-100 leading-relaxed text-[15px]">
+          <span data-it>Non equity. Non lending. Non un security. Sotto soglia ECSP safe harbor, zero licenza richiesta.</span>
+          <span data-en>Not equity. Not lending. Not a security. Under ECSP safe harbor, zero license required.</span>
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FLUSSO DEI SOLDI ═══════════════════ -->
+<section id="flusso" class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 30% 30%, rgba(180,28,255,0.16) 0px, transparent 45%), radial-gradient(at 70% 80%, rgba(255,45,85,0.16) 0px, transparent 45%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-16">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>il flusso dei soldi · ogni euro tracciato</span>
+        <span data-en>money flow · every euro tracked</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+        <span data-it>Dove vanno i tuoi soldi. <span class="serif aurora-text font-normal block">Esattamente.</span></span>
+        <span data-en>Where your money goes. <span class="serif aurora-text font-normal block">Exactly.</span></span>
+      </h2>
+      <p class="mt-6 text-lg text-ink-100 leading-relaxed max-w-2xl">
+        <span data-it>Sette passi. Ogni uno è auditabile. La startup non tocca mai il tuo capitale: i fondi escono dal nostro escrow direttamente verso Meta, Google e TikTok. Le vendite tornano via webhook. Tu ricevi la tua quota in automatico.</span>
+        <span data-en>Seven steps. Every one is auditable. The startup never touches your capital: funds leave our escrow straight to Meta, Google, TikTok. Sales come back via webhook. You receive your share automatically.</span>
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- vertical line -->
+      <div class="absolute left-6 sm:left-9 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-aurora-2 to-aurora-4 opacity-50"></div>
+
+      <div class="space-y-8 sm:space-y-10">
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h18M3 12h18M3 17h18"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">01</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>L'investitore versa</span><span data-en>Investor deposits</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Scegli una campagna, scegli quanto. Versi via <strong class="text-white">bonifico SEPA</strong> o <strong class="text-white">Stripe Checkout</strong>. I tuoi soldi NON arrivano sul nostro conto operativo: vanno direttamente in un <strong class="text-white">conto escrow bancario separato</strong>, intestato a noi ma vincolato alla campagna specifica.</span>
+            <span data-en>Pick a campaign, pick how much. You pay via <strong class="text-white">SEPA transfer</strong> or <strong class="text-white">Stripe Checkout</strong>. Your money does NOT land on our operating account: it goes straight to a <strong class="text-white">separate bank escrow account</strong>, owned by us but locked to the specific campaign.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200"><span data-it>STATUS</span><span data-en>STATUS</span> · <span class="text-accent-hi">in_escrow</span> · <span data-it>ricevi conferma email + dashboard live</span><span data-en>email + live dashboard confirmation</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 1110 0v4"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">02</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>I fondi restano congelati in escrow</span><span data-en>Funds frozen in escrow</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Finché la campagna non raggiunge il budget target, i soldi restano fermi. Riconciliazione bancaria settimanale. Audit annuale. Se la campagna NON parte entro 60 giorni, <strong class="text-white">restituzione integrale + €0 fee</strong>. Se la startup non completa l'onboarding entro 14 giorni: ritiro o riallocazione su altra campagna.</span>
+            <span data-en>Until the campaign hits target budget, funds sit still. Weekly bank reconciliation. Annual audit. If the campaign does NOT launch within 60 days: <strong class="text-white">full refund, €0 fee</strong>. If the startup fails onboarding in 14 days: withdraw or reallocate.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">SAFETY · <span class="text-accent-hi">separated bank account · weekly reconcile · annual audit</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">03</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>La campagna parte. CROWADS spende le ads.</span><span data-en>Campaign launches. CROWADS spends the ads.</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Quando il pool raggiunge target, lanciamo le ads. <strong class="text-white">I soldi escono dall'escrow direttamente verso Meta, Google, TikTok</strong> tramite i NOSTRI ad account (intestati a noi, non alla startup). La startup fornisce solo brand assets e creativi. <strong class="text-white">Non riceve mai un bonifico.</strong></span>
+            <span data-en>When the pool hits target, ads launch. <strong class="text-white">Money flows from escrow straight to Meta, Google, TikTok</strong> via OUR ad accounts (ours, not the startup's). The startup only provides brand assets and creatives. <strong class="text-white">They never receive a wire transfer.</strong></span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">DAILY SPEND · <span class="text-accent-hi">escrow → Meta · escrow → Google · escrow → TikTok</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">04</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>L'utente clicca, atterra, compra</span><span data-en>User clicks, lands, buys</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Ogni ad ha un <strong class="text-white">UTM unico</strong> + pixel tracking. L'utente clicca → arriva sul sito della startup → completa l'acquisto. Tre layer di tracking: UTM, pixel Meta/Google/TikTok, webhook API <strong class="text-white">Stripe + Shopify + WooCommerce</strong>. Ogni euro di vendita è ricondotto all'ad specifica che lo ha generato.</span>
+            <span data-en>Every ad carries a <strong class="text-white">unique UTM</strong> + tracking pixel. User clicks → lands on startup site → completes purchase. Three tracking layers: UTM, Meta/Google/TikTok pixels, API webhook <strong class="text-white">Stripe + Shopify + WooCommerce</strong>. Every euro of revenue is traced to the ad that generated it.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">ATTRIBUTION · <span class="text-accent-hi">UTM + pixel + webhook (last-paid-click 30d)</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">05</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>Calcolo automatico revenue share</span><span data-en>Automatic revenue share calculation</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Ogni mese il sistema calcola: <code class="font-mono text-accent-hi">revenue attribuito × 30%</code> = importo dovuto da startup a CROWADS. Il contratto Revenue Share Marketing (RSM) firmato dalla startup obbliga al versamento mensile, entro il 15. Penale 2%/mese in caso di ritardo. Garanzia personale del founder.</span>
+            <span data-en>Every month the system computes: <code class="font-mono text-accent-hi">attributed revenue × 30%</code> = amount due from startup to CROWADS. The signed Revenue Share Marketing (RSM) contract enforces monthly payment by the 15th. 2%/month penalty on late payment. Founder personal guarantee.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">EXAMPLE · <span class="text-accent-hi">€50.000 revenue × 30% = €15.000 due to CROWADS</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v4M18 10v4"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">06</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>La startup paga CROWADS</span><span data-en>Startup pays CROWADS</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>La startup bonifica i €15.000 sul nostro conto. CROWADS trattiene la <strong class="text-white">platform fee</strong> (5-10% del revenue share) + eventuale <strong class="text-white">performance bonus</strong> (50% del surplus se ROAS &gt; 3x). Esempio: €15.000 − €1.500 platform fee − €2.000 performance bonus = <strong class="text-accent-hi">€11.500 distribuibili agli investitori</strong>.</span>
+            <span data-en>The startup wires €15,000 to our account. CROWADS withholds the <strong class="text-white">platform fee</strong> (5-10% of revenue share) + optional <strong class="text-white">performance bonus</strong> (50% of surplus if ROAS &gt; 3x). Example: €15,000 − €1,500 platform fee − €2,000 perf bonus = <strong class="text-accent-hi">€11,500 distributable to investors</strong>.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">CROWADS REVENUE · <span class="text-accent-hi">platform fee + performance bonus</span></p>
+        </div>
+
+        <div class="flow-step relative pl-16 sm:pl-24">
+          <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40 glow-pink">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 10l7-7 7 7"/></svg>
+          </div>
+          <div class="flex items-baseline gap-3 mb-2">
+            <span class="font-mono text-xs text-accent-hi">07</span>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>Distribuzione automatica agli investitori</span><span data-en>Automatic distribution to investors</span></h3>
+          </div>
+          <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
+            <span data-it>Il <strong class="text-white">20 di ogni mese</strong>, CROWADS distribuisce automaticamente l'importo pro-quota a tutti gli investitori della campagna. <strong class="text-white">Bonifico SEPA</strong> diretto sul tuo IBAN sopra €50. Sotto €50 si accumula in wallet, prelevabile su richiesta. Ricevi <strong class="text-white">fattura/credit note</strong> per la tua dichiarazione fiscale.</span>
+            <span data-en>On the <strong class="text-white">20th of every month</strong>, CROWADS automatically distributes the pro-rata amount to all investors in the campaign. <strong class="text-white">Direct SEPA transfer</strong> to your IBAN over €50. Under €50 accumulates in your wallet, withdrawable on demand. You receive <strong class="text-white">invoice/credit note</strong> for your tax filing.</span>
+          </p>
+          <p class="mt-3 font-mono text-xs text-ink-200">PAYOUT · <span class="text-accent-hi">€11.500 / 24 investors pro-rata · SEPA day 20</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA business plan -->
+    <div class="mt-20 sm:mt-24 glass-strong rounded-2xl p-7 sm:p-10 glow-pink relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(at 80% 40%, rgba(255,45,85,0.18) 0px, transparent 50%);"></div>
+      <div class="relative flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
+        <div>
+          <span class="font-mono text-xs text-accent-hi">
+            <span data-it>vuoi tutti i dettagli?</span>
+            <span data-en>want every detail?</span>
+          </span>
+          <h3 class="display text-2xl sm:text-3xl mt-2 text-white">
+            <span data-it>Il <span class="serif aurora-text font-normal">business plan completo</span>: unit economics, mercato, proiezioni 36 mesi, rischi e mitigazione.</span>
+            <span data-en>The <span class="serif aurora-text font-normal">full business plan</span>: unit economics, market, 36-month projections, risks and mitigation.</span>
+          </h3>
+        </div>
+        <a href="business-plan.html" class="hoverable shrink-0 inline-flex items-center gap-2 bg-white text-midnight-900 hover:bg-accent hover:text-white transition px-6 py-3.5 rounded-full font-medium text-[15px] whitespace-nowrap">
+          <span data-it>Leggi il business plan</span>
+          <span data-en>Read the business plan</span>
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ TERMINAL DEMO ═══════════════════ -->
+<section class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 80% 50%, rgba(255,45,85,0.12) 0px, transparent 50%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+      <div class="lg:sticky lg:top-28">
+        <span class="font-mono text-xs text-accent-hi">
+          <span data-it>una campagna reale · live</span>
+          <span data-en>a real campaign · live</span>
+        </span>
+        <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+          <span data-it>Tre passi. <span class="serif aurora-text font-normal block">Un contratto.</span> Settlement automatico.</span>
+          <span data-en>Three steps. <span class="serif aurora-text font-normal block">One contract.</span> Auto settlement.</span>
+        </h2>
+        <p class="mt-6 text-ink-100 text-lg leading-relaxed max-w-md">
+          <span data-it>Niente black box, niente report trimestrali. Ogni azione è osservabile via API e dashboard in tempo reale.</span>
+          <span data-en>No black boxes, no quarterly reports. Every action is API-observable, real time.</span>
+        </p>
+
+        <ul class="mt-8 space-y-3 text-sm text-ink-100">
+          <li class="flex gap-3"><span class="text-accent-hi">▸</span><span data-it>Pool investitori in escrow bancario regolato</span><span data-en>Investor pool in regulated bank escrow</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi">▸</span><span data-it>Esecuzione ads su Meta, Google, TikTok</span><span data-en>Ads executed on Meta, Google, TikTok</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi">▸</span><span data-it>Revenue attribuita via UTM + pixel + webhook</span><span data-en>Revenue attributed via UTM + pixel + webhook</span></li>
+          <li class="flex gap-3"><span class="text-accent-hi">▸</span><span data-it>Distribuzione mensile SEPA pro-quota</span><span data-en>Monthly pro-rata SEPA distribution</span></li>
+        </ul>
+      </div>
+
+      <div class="glass-strong rounded-2xl overflow-hidden border border-white/[0.10] glow-pink">
+        <header class="flex items-center justify-between px-5 py-3 border-b border-white/[0.06] bg-white/[0.02]">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-midnight-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-midnight-600"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-midnight-600"></span>
+          </div>
+          <span class="font-mono text-xs text-ink-200">campaign · 0x42a8 · live</span>
+        </header>
+        <div id="terminal" class="terminal px-5 sm:px-6 py-6 space-y-1 min-h-[480px]"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MARIO AI ═══════════════════ -->
+<section id="mario" class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 20% 50%, rgba(180,28,255,0.18) 0px, transparent 45%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+      <div class="lg:col-span-7">
+        <span class="font-mono text-xs text-accent-hi">
+          <span data-it>powered by · stack proprietario</span>
+          <span data-en>powered by · proprietary AI stack</span>
+        </span>
+        <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+          <span data-it>Mario AI è il motore <span class="serif aurora-text font-normal">sotto CROWADS.</span></span>
+          <span data-en>Mario AI is the engine <span class="serif aurora-text font-normal">under CROWADS.</span></span>
+        </h2>
+      </div>
+      <div class="lg:col-span-5">
+        <p class="text-ink-100 text-lg leading-relaxed">
+          <span data-it>Mario AI è il nostro stack proprietario, già operativo da 18+ mesi. Genera creativi, gestisce attribution ML, fa portfolio allocation. Riduce i costi operativi di CROWADS del <strong class="text-white">60-70%</strong> vs partire da zero.</span>
+          <span data-en>Mario AI is our proprietary stack, live for 18+ months. Generates creatives, runs attribution ML, handles portfolio allocation. Cuts CROWADS operating costs <strong class="text-white">60-70%</strong> vs building from scratch.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent-hi" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 14l4-4 4 4 6-6 4 4"/></svg>
+        </div>
+        <h3 class="font-semibold text-white text-lg">Studio Image</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Genera creativi multi-formato (square, vertical, story) con gpt-image-1 + Pollinations. AI Influencer persona consistente.</span>
+          <span data-en>Generates multi-format creatives (square, vertical, story) with gpt-image-1 + Pollinations. Consistent AI Influencer persona.</span>
+        </p>
+        <span class="mt-auto font-mono text-[11px] text-ink-300">16 routes · 4 tier</span>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent-hi" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+        </div>
+        <h3 class="font-semibold text-white text-lg">Studio Video</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Video brevi tipo Reels/TikTok via Higgsfield CLI. Output diretto agli ad account per A/B test. Zero costi creativa.</span>
+          <span data-en>Short videos Reels/TikTok via Higgsfield CLI. Direct output to ad accounts for A/B testing. Zero creative cost.</span>
+        </p>
+        <span class="mt-auto font-mono text-[11px] text-ink-300">6 step pipeline</span>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent-hi" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l5 3"/></svg>
+        </div>
+        <h3 class="font-semibold text-white text-lg">Auto-Pilot ML</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Portfolio allocation. Scoring composite (ROAS × tier × track record). Rebalancing mensile automatico.</span>
+          <span data-en>Portfolio allocation. Composite scoring (ROAS × tier × track record). Auto monthly rebalancing.</span>
+        </p>
+        <span class="mt-auto font-mono text-[11px] text-ink-300">tier min €5k</span>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-6 flex flex-col gap-3">
+        <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent-hi" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
+        </div>
+        <h3 class="font-semibold text-white text-lg">Brain Server</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Knowledge base AI. 167+ note playbook performance marketing. Attribution ML retrained mensile.</span>
+          <span data-en>AI knowledge base. 167+ performance marketing playbook notes. Attribution ML retrained monthly.</span>
+        </p>
+        <span class="mt-auto font-mono text-[11px] text-ink-300">38 routes</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FIRST COHORT ═══════════════════ -->
+<section id="cohort" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>le prime 3 startup pilota</span>
+        <span data-en>first 3 pilot startups</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl mt-4">
+        <span data-it>Founders cohort · <span class="serif aurora-text font-normal">settembre 2026.</span></span>
+        <span data-en>Founders cohort · <span class="serif aurora-text font-normal">September 2026.</span></span>
+      </h2>
+      <p class="mt-5 text-lg text-ink-100 leading-relaxed">
+        <span data-it>Apriamo con tre case study reali. Tutte da team noti, asset proprietari Qualitec, funzionanti, con revenue tracciabile dal giorno uno.</span>
+        <span data-en>We launch with three real case studies. Known teams, Qualitec-proprietary assets, live, with trackable revenue from day one.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <article class="card-tilt glass rounded-2xl overflow-hidden flex flex-col">
+        <div class="cohort-img" style="background-image:url('https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-xl font-semibold text-white">Mario AI</h3>
+            <span class="font-mono text-[11px] text-accent-hi">ai saas</span>
+          </div>
+          <p class="text-sm text-ink-100 leading-relaxed">
+            <span data-it>Piattaforma AI per PMI: dipartimenti completi (sales, marketing, finance, ops) gestiti da agenti AI. 18 mesi live, asset Qualitec.</span>
+            <span data-en>AI platform for SMBs: full departments (sales, marketing, finance, ops) run by AI agents. 18 months live, Qualitec asset.</span>
+          </p>
+          <dl class="mt-auto pt-4 border-t border-white/[0.06] grid grid-cols-2 gap-3 text-xs">
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>Budget</span><span data-en>Budget</span></dt><dd class="text-white font-semibold tnum">€30k</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>ROAS atteso</span><span data-en>Target ROAS</span></dt><dd class="text-white font-semibold tnum">5–7x</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl overflow-hidden flex flex-col">
+        <div class="cohort-img" style="background-image:url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-xl font-semibold text-white">Misticanza</h3>
+            <span class="font-mono text-[11px] text-accent-hi">luxury investments</span>
+          </div>
+          <p class="text-sm text-ink-100 leading-relaxed">
+            <span data-it>Funnel 1000→100→5→1 perle/mese: HNW marketplace per oggetti d'investimento fisici premium. ROI 5-10x documentato.</span>
+            <span data-en>Funnel 1000→100→5→1 pearls/month: HNW marketplace for premium physical investment objects. 5-10x ROI documented.</span>
+          </p>
+          <dl class="mt-auto pt-4 border-t border-white/[0.06] grid grid-cols-2 gap-3 text-xs">
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>Budget</span><span data-en>Budget</span></dt><dd class="text-white font-semibold tnum">€50k</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>ROAS atteso</span><span data-en>Target ROAS</span></dt><dd class="text-white font-semibold tnum">4–6x</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl overflow-hidden flex flex-col">
+        <div class="cohort-img" style="background-image:url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="text-xl font-semibold text-white">TapTrack</h3>
+            <span class="font-mono text-[11px] text-accent-hi">b2b retail tech</span>
+          </div>
+          <p class="text-sm text-ink-100 leading-relaxed">
+            <span data-it>Hardware + SaaS per tracking inventory retail tradizionale. Source revenue cohort, priorità ALTA Qualitec 2026.</span>
+            <span data-en>Hardware + SaaS for traditional retail inventory tracking. Revenue source cohort, HIGH priority Qualitec 2026.</span>
+          </p>
+          <dl class="mt-auto pt-4 border-t border-white/[0.06] grid grid-cols-2 gap-3 text-xs">
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>Budget</span><span data-en>Budget</span></dt><dd class="text-white font-semibold tnum">€20k</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1"><span data-it>ROAS atteso</span><span data-en>Target ROAS</span></dt><dd class="text-white font-semibold tnum">3–5x</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MATH ═══════════════════ -->
+<section id="numeri" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8">
+
+    <div class="mb-12">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>i numeri · trasparenti</span>
+        <span data-en>the numbers · transparent</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl mt-4">
+        <span data-it>€10.000 dentro. <span class="serif aurora-text font-normal block sm:inline">Tracciati fino in fondo.</span></span>
+        <span data-en>€10,000 in. <span class="serif aurora-text font-normal block sm:inline">Tracked all the way.</span></span>
+      </h2>
+      <p class="mt-5 text-lg text-ink-100 leading-relaxed max-w-2xl">
+        <span data-it>Niente matematica nascosta, niente "rendimenti attesi" vaghi. Il flusso reale del denaro in una campagna esempio a ROAS mid-tier 5x.</span>
+        <span data-en>No hidden math, no vague "expected returns." Actual flow of money on a mid-tier 5x ROAS example campaign.</span>
+      </p>
+    </div>
+
+    <div class="border border-white/[0.08] rounded-2xl overflow-hidden divide-y divide-white/[0.06]">
+      <div class="flex items-center justify-between px-5 sm:px-8 py-5 hover:bg-white/[0.02] transition gap-3">
+        <span class="text-ink-100 text-sm sm:text-base"><span data-it>Pool finanzia la campagna</span><span data-en>Pool funds the campaign</span></span>
+        <span class="display text-xl sm:text-2xl text-white tnum">€10.000</span>
+      </div>
+      <div class="flex items-center justify-between px-5 sm:px-8 py-5 hover:bg-white/[0.02] transition gap-3">
+        <span class="text-ink-200 text-sm"><span data-it>CROWADS spende su Meta + Google + TikTok</span><span data-en>CROWADS spends on Meta + Google + TikTok</span></span>
+        <span class="text-xl sm:text-2xl text-ink-100 tnum">€10.000</span>
+      </div>
+      <div class="flex items-center justify-between px-5 sm:px-8 py-5 hover:bg-white/[0.02] transition gap-3">
+        <span class="text-ink-200 text-sm"><span data-it>Revenue tracciata generata (12 mesi)</span><span data-en>Tracked revenue (12 months)</span></span>
+        <span class="text-xl sm:text-2xl text-ink-100 tnum">€50.000</span>
+      </div>
+      <div class="flex items-center justify-between px-5 sm:px-8 py-5 hover:bg-white/[0.02] transition gap-3">
+        <span class="text-ink-200 text-sm"><span data-it>Startup paga revenue share (30%)</span><span data-en>Startup pays revenue share (30%)</span></span>
+        <span class="text-xl sm:text-2xl text-ink-100 tnum">€15.000</span>
+      </div>
+      <div class="flex items-center justify-between px-5 sm:px-8 py-6 bg-accent/[0.08] hover:bg-accent/[0.12] transition gap-3">
+        <span class="text-white font-medium text-sm sm:text-base"><span data-it>Investitori ricevono (capitale + 15% premio)</span><span data-en>Investors receive (capital + 15% premium)</span></span>
+        <span class="display text-2xl sm:text-3xl aurora-text tnum">€11.500</span>
+      </div>
+      <div class="flex items-center justify-between px-5 sm:px-8 py-5 hover:bg-white/[0.02] transition gap-3">
+        <span class="text-ink-200 text-sm"><span data-it>Platform fee (CROWADS)</span><span data-en>Platform fee (CROWADS)</span></span>
+        <span class="text-xl sm:text-2xl text-ink-100 tnum">€3.500</span>
+      </div>
+    </div>
+
+    <p class="mt-6 text-sm text-ink-200 max-w-3xl leading-relaxed">
+      <span data-it>ROAS 5x è conservativo per una campagna B2C curata. Top performer arrivano al 25-40% premio. Sotto 2x ROAS l'investitore assorbe perdita parziale.</span>
+      <span data-en>5x ROAS is conservative for a curated B2C campaign. Top performers reach 25-40% premium. Below 2x ROAS investors absorb partial loss.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY NOW ═══════════════════ -->
+<section class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs text-accent-hi">why now · 2026</span>
+      <h2 class="display text-4xl sm:text-5xl">
+        <span data-it>Tre venti convergono. <span class="serif aurora-text font-normal block">Siamo first mover.</span></span>
+        <span data-en>Three winds converge. <span class="serif aurora-text font-normal block">First mover in EU+MENA.</span></span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
+      <article class="card-tilt glass rounded-2xl p-7 sm:p-8">
+        <span class="display text-5xl sm:text-6xl aurora-text tnum">+60<span class="text-xl sm:text-2xl">%</span></span>
+        <h3 class="text-lg font-semibold mt-4 text-white">Revenue-based financing</h3>
+        <p class="mt-3 text-sm text-ink-100 leading-relaxed">
+          <span data-it>CAGR 2024-2028. Karmen, Wayflyer, GetVantage valgono già miliardi. Nessuno in EU/MENA fa <em class="text-white not-italic">pooled RBF</em>.</span>
+          <span data-en>CAGR 2024-2028. Karmen, Wayflyer, GetVantage are worth billions. No one in EU/MENA does <em class="text-white not-italic">pooled RBF</em>.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-7 sm:p-8">
+        <span class="display text-5xl sm:text-6xl aurora-text tnum">60<span class="text-xl sm:text-2xl">%</span></span>
+        <h3 class="text-lg font-semibold mt-4 text-white">
+          <span data-it>Crowdfunding in crisi fiducia</span>
+          <span data-en>Crowdfunding trust collapse</span>
+        </h3>
+        <p class="mt-3 text-sm text-ink-100 leading-relaxed">
+          <span data-it>dei progetti 2024 non ha rispettato milestone. Gli investitori cercano leverage operativo, non storytelling.</span>
+          <span data-en>of 2024 projects missed milestones. Investors want operational leverage, not storytelling.</span>
+        </p>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-7 sm:p-8">
+        <span class="display text-5xl sm:text-6xl aurora-text tnum">€5M</span>
+        <h3 class="text-lg font-semibold mt-4 text-white">ECSP safe harbor</h3>
+        <p class="mt-3 text-sm text-ink-100 leading-relaxed">
+          <span data-it>per campagna sotto 12 mesi, fino a 149 partecipanti. Zero licenza richiesta. Time-to-market 10x più veloce.</span>
+          <span data-en>per campaign in 12 months, up to 149 participants. Zero license required. 10x faster time-to-market.</span>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CO-FOUNDERS ═══════════════════ -->
+<section id="team" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs text-accent-hi"><span data-it>chi è dietro</span><span data-en>who's behind</span></span>
+      <h2 class="display text-4xl sm:text-5xl mt-4">
+        <span data-it>Due co-founders. <span class="serif aurora-text font-normal block">Una piattaforma.</span></span>
+        <span data-en>Two co-founders. <span class="serif aurora-text font-normal block">One platform.</span></span>
+      </h2>
+      <p class="mt-5 text-lg text-ink-100 leading-relaxed">
+        <span data-it>Operiamo tra Dubai e Verona. Stack tecnologico nostro, network HNW nostro, deal flow nostro.</span>
+        <span data-en>Based between Dubai and Verona. Our stack, our HNW network, our deal flow.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+
+      <article class="card-tilt glass rounded-2xl overflow-hidden flex flex-col">
+        <div class="aspect-[4/5] sm:aspect-[5/4] relative">
+          <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center 20%; filter: grayscale(0.35) contrast(1.08);"></div>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 45%, rgba(5,6,15,0.94) 100%);"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6">
+            <div class="font-mono text-[11px] text-accent-hi mb-1">CO-FOUNDER · CEO</div>
+            <div class="text-white text-2xl font-semibold display">Ale</div>
+            <div class="text-ink-100 text-sm mt-1"><span data-it>Strategia · Network HNW Dubai + Italia</span><span data-en>Strategy · HNW Network Dubai + Italy</span></div>
+          </div>
+        </div>
+        <div class="p-6 sm:p-7 flex-1 flex flex-col gap-3">
+          <p class="text-ink-100 leading-relaxed text-[15px]">
+            <span data-it>Multi-venture entrepreneur. Background performance marketing, AI products, fintech. Porta deal flow startup e la rete di investitori HNW del Golfo e Nord Italia.</span>
+            <span data-en>Multi-venture entrepreneur. Background in performance marketing, AI products, fintech. Brings startup deal flow and the HNW investor network across the Gulf and North Italy.</span>
+          </p>
+          <dl class="mt-auto pt-4 border-t border-white/[0.08] grid grid-cols-3 gap-3 text-xs">
+            <div><dt class="text-ink-200 font-mono mb-1">VENTURES</dt><dd class="display text-lg text-white tnum">7+</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1">BASE</dt><dd class="display text-lg text-white">UAE</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1">FOCUS</dt><dd class="display text-lg text-white text-[15px]">GTM</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl overflow-hidden flex flex-col">
+        <div class="aspect-[4/5] sm:aspect-[5/4] relative">
+          <div class="absolute inset-0" style="background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center 25%; filter: grayscale(0.35) contrast(1.08);"></div>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 45%, rgba(5,6,15,0.94) 100%);"></div>
+          <div class="absolute bottom-0 inset-x-0 p-6">
+            <div class="font-mono text-[11px] text-accent-hi mb-1">CO-FOUNDER · CTO</div>
+            <div class="text-white text-2xl font-semibold display">Joe</div>
+            <div class="text-ink-100 text-sm mt-1"><span data-it>Tech · Piattaforma Reticolo · Mario AI integrations</span><span data-en>Tech · Reticolo platform · Mario AI integrations</span></div>
+          </div>
+        </div>
+        <div class="p-6 sm:p-7 flex-1 flex flex-col gap-3">
+          <p class="text-ink-100 leading-relaxed text-[15px]">
+            <span data-it>Builder seriale. Founder di <strong class="text-white font-medium">Reticolo</strong>, piattaforma chat unificata multi-canale. Porta la spina dorsale tecnica di CROWADS: tracking, attribution, integrazioni ad-platform, dashboard real-time.</span>
+            <span data-en>Serial builder. Founder of <strong class="text-white font-medium">Reticolo</strong>, the unified multi-channel chat platform. Brings the technical backbone of CROWADS: tracking, attribution, ad-platform integrations, real-time dashboards.</span>
+          </p>
+          <dl class="mt-auto pt-4 border-t border-white/[0.08] grid grid-cols-3 gap-3 text-xs">
+            <div><dt class="text-ink-200 font-mono mb-1">BUILT</dt><dd class="display text-lg text-white">Reticolo</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1">BASE</dt><dd class="display text-lg text-white">EU</dd></div>
+            <div><dt class="text-ink-200 font-mono mb-1">FOCUS</dt><dd class="display text-lg text-white">Tech</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRICING ═══════════════════ -->
+<section id="fees" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs text-accent-hi">pricing</span>
+      <h2 class="display text-4xl sm:text-5xl">
+        <span data-it>Allineati al tuo ritorno. <span class="serif aurora-text font-normal block">Non contro.</span></span>
+        <span data-en>Aligned with your return. <span class="serif aurora-text font-normal block">Not against it.</span></span>
+      </h2>
+      <p class="mt-5 text-lg text-ink-100 leading-relaxed">
+        <span data-it>Guadagniamo davvero solo quando gli investitori guadagnano. Tre fee, niente rebate nascosti.</span>
+        <span data-en>We make real money only when investors do. Three fees, no hidden rebates.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
+      <article class="card-tilt glass rounded-2xl p-7 sm:p-8 flex flex-col">
+        <span class="font-mono text-xs text-ink-200"><span data-it>startup · una tantum</span><span data-en>startup · one-off</span></span>
+        <h3 class="text-xl font-semibold mt-2 text-white">Onboarding fee</h3>
+        <div class="mt-6"><span class="display text-5xl text-white tnum">€500</span><span class="block text-ink-200 text-sm mt-1"><span data-it>a €2.000</span><span data-en>to €2,000</span></span></div>
+        <p class="mt-6 text-ink-100 text-[15px] leading-relaxed"><span data-it>Due diligence, brand-asset review, integrazione pixel + tracking, onboarding al campaign manager.</span><span data-en>Due diligence, brand asset review, pixel + tracking integration, onboarding to campaign manager.</span></p>
+      </article>
+
+      <article class="card-tilt glass-strong rounded-2xl p-7 sm:p-8 flex flex-col border-accent/40 glow-pink relative overflow-hidden">
+        <div class="absolute -top-px left-1/2 -translate-x-1/2 px-3 py-0.5 bg-accent text-white text-[10px] font-mono rounded-b-md"><span data-it>PIÙ USATO</span><span data-en>MOST USED</span></div>
+        <span class="font-mono text-xs text-accent-hi"><span data-it>startup · ongoing</span><span data-en>startup · ongoing</span></span>
+        <h3 class="text-xl font-semibold mt-2 text-white">Platform management</h3>
+        <div class="mt-6"><span class="display text-5xl text-white tnum">5–10<span class="text-2xl align-top">%</span></span><span class="block text-ink-200 text-sm mt-1"><span data-it>del revenue share captato</span><span data-en>of revenue share captured</span></span></div>
+        <p class="mt-6 text-ink-100 text-[15px] leading-relaxed"><span data-it>Esecuzione ads, rotazione creativi, A/B test, attribuzione, reporting giornaliero, distribuzione automatica investitori.</span><span data-en>Ad execution, creative rotation, A/B testing, attribution, daily reporting, automatic investor distribution.</span></p>
+      </article>
+
+      <article class="card-tilt glass rounded-2xl p-7 sm:p-8 flex flex-col">
+        <span class="font-mono text-xs text-ink-200"><span data-it>startup · condizionale</span><span data-en>startup · conditional</span></span>
+        <h3 class="text-xl font-semibold mt-2 text-white">Performance bonus</h3>
+        <div class="mt-6"><span class="display text-5xl text-white tnum">50<span class="text-2xl align-top">%</span></span><span class="block text-ink-200 text-sm mt-1"><span data-it>del surplus ROAS &gt; 3x</span><span data-en>of ROAS surplus &gt; 3x</span></span></div>
+        <p class="mt-6 text-ink-100 text-[15px] leading-relaxed"><span data-it>Condividiamo il surplus che abbiamo generato. Solo sul top-tier. Va a zero se siamo sotto target.</span><span data-en>We share the surplus we generated. Top-tier only. Goes to zero if we underperform.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ROADMAP ═══════════════════ -->
+<section class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4 lg:sticky lg:top-28 self-start">
+        <span class="font-mono text-xs text-accent-hi"><span data-it>roadmap pubblica</span><span data-en>public roadmap</span></span>
+        <h2 class="display text-4xl sm:text-5xl mt-4">
+          <span data-it>Cosa succede, <span class="serif aurora-text font-normal">quando.</span></span>
+          <span data-en>What happens, <span class="serif aurora-text font-normal">when.</span></span>
+        </h2>
+        <p class="mt-5 text-ink-100"><span data-it>Trasparenza completa sui prossimi 18 mesi.</span><span data-en>Full transparency on next 18 months.</span></p>
+      </div>
+
+      <div class="lg:col-span-8 border-y border-white/[0.08]">
+        <div class="roadmap-row">
+          <span class="font-mono text-xs text-accent-hi mt-1">Q3 2026</span>
+          <div><h3 class="text-white font-semibold mb-1"><span data-it>Founders cohort · soft launch</span><span data-en>Founders cohort · soft launch</span></h3><p class="text-sm text-ink-100 leading-relaxed"><span data-it>3 campagne pilota (Mario AI, Misticanza, TapTrack). 10-20 investitori network. RSM legal validato. Dominio crowads.com live.</span><span data-en>3 pilot campaigns (Mario AI, Misticanza, TapTrack). 10-20 network investors. RSM legal validated. crowads.com live.</span></p></div>
+        </div>
+        <div class="roadmap-row">
+          <span class="font-mono text-xs text-accent-hi mt-1">Q4 2026</span>
+          <div><h3 class="text-white font-semibold mb-1">Public launch</h3><p class="text-sm text-ink-100 leading-relaxed"><span data-it>10 campagne attive. 100 investitori. €100k ad spend. Prime distribuzioni mensili.</span><span data-en>10 active campaigns. 100 investors. €100k ad spend. First monthly distributions.</span></p></div>
+        </div>
+        <div class="roadmap-row">
+          <span class="font-mono text-xs text-accent-hi mt-1">Q1 2027</span>
+          <div><h3 class="text-white font-semibold mb-1"><span data-it>Break-even operativo</span><span data-en>Operational break-even</span></h3><p class="text-sm text-ink-100 leading-relaxed"><span data-it>30 campagne. 500 investitori. €500k ad spend. Auto-Pilot ML live. Primo press release.</span><span data-en>30 campaigns. 500 investors. €500k ad spend. Auto-Pilot ML live. First press release.</span></p></div>
+        </div>
+        <div class="roadmap-row">
+          <span class="font-mono text-xs text-accent-hi mt-1">Q2-Q3 2027</span>
+          <div><h3 class="text-white font-semibold mb-1"><span data-it>Verticalizzazione · €2M ARR</span><span data-en>Verticalization · €2M ARR</span></h3><p class="text-sm text-ink-100 leading-relaxed"><span data-it>Vertical SaaS B2B + e-commerce. 100 campagne. Espansione UE (ES, FR, DE).</span><span data-en>SaaS B2B + e-commerce verticals. 100 campaigns. EU expansion (ES, FR, DE).</span></p></div>
+        </div>
+        <div class="roadmap-row">
+          <span class="font-mono text-xs text-accent-hi mt-1">Q4 2027 → 2028</span>
+          <div><h3 class="text-white font-semibold mb-1">White-label · €10M ARR</h3><p class="text-sm text-ink-100 leading-relaxed"><span data-it>White-label per family office. Acquisizioni RBF locali. Eventuale seed €1-5M.</span><span data-en>White-label for family offices. Local RBF acquisitions. Optional €1-5M seed.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<section id="faq" class="py-24 sm:py-32 border-t border-white/[0.06]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4 lg:sticky lg:top-28 self-start">
+        <span class="font-mono text-xs text-accent-hi"><span data-it>domande frequenti</span><span data-en>common questions</span></span>
+        <h2 class="display text-4xl sm:text-5xl mt-4"><span data-it>Risposte <span class="serif aurora-text font-normal">dirette.</span></span><span data-en>Direct <span class="serif aurora-text font-normal">answers.</span></span></h2>
+        <p class="mt-5 text-ink-100"><span data-it>Manca qualcosa? Scrivi a</span><span data-en>Missing something? Write</span> <a href="mailto:hello@crowads.com" class="text-white underline decoration-accent decoration-2 underline-offset-4 hover:text-accent-hi transition">hello@crowads.com</a>.</p>
+      </div>
+
+      <div class="lg:col-span-8 divide-y divide-white/[0.06] border-y border-white/[0.06]">
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>CROWADS è una piattaforma di crowdfunding?</span><span data-en>Is CROWADS a crowdfunding platform?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>No. Il crowdfunding bonifica soldi direttamente alle startup. CROWADS tiene i fondi in escrow e li spende su ad tracciate gestite direttamente. La startup non tocca mai i soldi. Siamo una piattaforma di performance marketing con contratti revenue share, non un intermediario finanziario.</span><span data-en>No. Crowdfunding wires money directly to startups. CROWADS holds funds in escrow and spends them on tracked ads it runs itself. Startups never touch the money. We're a performance marketing platform with revenue share contracts, not a financial intermediary.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Serve una licenza per operare?</span><span data-en>Do we need a license?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>No. Sotto soglia ECSP safe harbor (149 partecipanti, €5M per campagna in 12 mesi). Operiamo come agenzia performance marketing, struttura legale in giurisdizione UAE.</span><span data-en>No. Under ECSP safe harbor (149 participants, €5M per campaign over 12 months). We operate as a performance marketing agency, legal entity in UAE jurisdiction.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Cosa succede se una campagna fallisce?</span><span data-en>What if a campaign fails?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>Se le ads non generano abbastanza revenue, gli investitori perdono parte o tutto il capitale. È il rischio che accetti. Lo mitighi diversificando (Auto-Pilot lo fa automaticamente). Non promettiamo rendimenti. Promettiamo trasparenza sulla matematica.</span><span data-en>If ads don't generate enough revenue, investors lose part or all of their capital. It's the risk you accept. You mitigate it by diversifying (Auto-Pilot does it automatically). We don't promise returns. We promise transparency on the math.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Come viene attribuito il revenue?</span><span data-en>How is revenue attributed?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>Tre layer: UTM unici, pixel Meta/Google/TikTok, integrazione API Stripe/Shopify/WooCommerce o webhook custom. Ogni euro tracciabile all'ad specifica. Last-paid-click attribution di default.</span><span data-en>Three layers: unique UTMs, Meta/Google/TikTok pixels, API integration with Stripe/Shopify/WooCommerce or custom webhook. Every euro traceable to the specific ad. Last-paid-click attribution by default.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Posso ritirare prima della fine?</span><span data-en>Can I withdraw early?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>Non dopo il lancio. Capitale committed per tutta la finestra di attribuzione (12 mesi). Full refund meno 5% se startup non completa onboarding entro 14 giorni.</span><span data-en>Not after launch. Capital is committed for the full attribution window (12 months). Full refund minus 5% if startup fails onboarding within 14 days.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Cos'è Auto-Pilot?</span><span data-en>What is Auto-Pilot?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>Imposti budget, profilo rischio, vertical preferiti. L'algoritmo distribuisce su campagne attive matching il profilo. Rebalancing mensile. Ticket min €5.000.</span><span data-en>You set budget, risk profile, preferred verticals. The algorithm distributes across active matching campaigns. Monthly rebalancing. Min ticket €5,000.</span></p></details>
+        <details class="py-6"><summary class="flex items-center justify-between gap-4 text-[17px] font-medium text-white"><span><span data-it>Che startup possono candidarsi?</span><span data-en>Which startups can apply?</span></span><span class="plus font-mono text-2xl text-ink-200">+</span></summary><p class="mt-4 text-ink-100 leading-relaxed text-[15px] max-w-2xl"><span data-it>B2C/B2B con prodotto funzionante, landing live con tracking, Stripe/Shopify integrato, margine &gt;30%, LTV almeno 3x CAC. Vertical: SaaS, e-commerce, fintech, healthtech, creator economy.</span><span data-en>B2C/B2B with live product, landing with tracking, Stripe/Shopify integrated, margin &gt;30%, LTV at least 3x CAC. Verticals: SaaS, e-commerce, fintech, healthtech, creator economy.</span></p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ DOCUMENTAZIONE COMPLETA ═══════════════════ -->
+<section id="docs" class="py-24 sm:py-32 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none"
+       style="background: radial-gradient(at 50% 30%, rgba(60,123,255,0.12) 0px, transparent 50%);"></div>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs text-accent-hi">
+        <span data-it>documentazione completa</span>
+        <span data-en>full documentation</span>
+      </span>
+      <h2 class="display text-4xl sm:text-5xl lg:text-6xl mt-4">
+        <span data-it>Tutto leggibile. <span class="serif aurora-text font-normal block">Tutto trasparente.</span></span>
+        <span data-en>All readable. <span class="serif aurora-text font-normal block">All transparent.</span></span>
+      </h2>
+      <p class="mt-6 text-lg text-ink-100 leading-relaxed max-w-2xl">
+        <span data-it>Prima di mettere un euro dentro CROWADS, leggi tutto. Business plan, regolamento legale, specifiche tecniche: ogni clausola, ogni numero, ogni endpoint. Niente trucchi, niente piccolo stampato nascosto.</span>
+        <span data-en>Before putting a euro into CROWADS, read everything. Business plan, legal terms, technical spec: every clause, every number, every endpoint. No tricks, no hidden fine print.</span>
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+
+      <a href="business-plan.html" class="card-tilt glass rounded-2xl p-7 sm:p-8 flex flex-col gap-4 group hover:bg-white/[0.04] transition">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-hi">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-ink-200">22 min · IT</span>
+        </div>
+        <h3 class="display text-2xl text-white">Business plan</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Executive summary, mercato (TAM/SAM/SOM), competitor, unit economics, proiezioni 36 mesi, GTM strategy, team, milestones, rischi e mitigazione.</span>
+          <span data-en>Executive summary, market (TAM/SAM/SOM), competitors, unit economics, 36-month projections, GTM strategy, team, milestones, risks and mitigation.</span>
+        </p>
+        <div class="mt-auto pt-4 flex items-center justify-between border-t border-white/[0.06]">
+          <span class="font-mono text-xs text-ink-300"><span data-it>per investitori HNW · NDA</span><span data-en>for HNW investors · NDA</span></span>
+          <span class="text-accent-hi text-lg group-hover:translate-x-1 transition">→</span>
+        </div>
+      </a>
+
+      <a href="regolamento.html" class="card-tilt glass rounded-2xl p-7 sm:p-8 flex flex-col gap-4 group hover:bg-white/[0.04] transition">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-hi">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6l3-3h12l3 3v15a1 1 0 01-1 1H4a1 1 0 01-1-1V6z"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-ink-200">20 artt · IT</span>
+        </div>
+        <h3 class="display text-2xl text-white"><span data-it>Regolamento</span><span data-en>Regolamento</span></h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>20 articoli legali: KYC, contratto Revenue Share Marketing, escrow bancario, esecuzione ads, attribuzione, fee, GDPR, giurisdizione, risoluzione controversie.</span>
+          <span data-en>20 legal articles: KYC, Revenue Share Marketing contract, bank escrow, ad execution, attribution, fees, GDPR, jurisdiction, dispute resolution.</span>
+        </p>
+        <div class="mt-auto pt-4 flex items-center justify-between border-t border-white/[0.06]">
+          <span class="font-mono text-xs text-ink-300"><span data-it>termini d'uso piattaforma</span><span data-en>platform terms of use</span></span>
+          <span class="text-accent-hi text-lg group-hover:translate-x-1 transition">→</span>
+        </div>
+      </a>
+
+      <a href="spec-tecnica.html" class="card-tilt glass rounded-2xl p-7 sm:p-8 flex flex-col gap-4 group hover:bg-white/[0.04] transition">
+        <div class="flex items-center justify-between">
+          <div class="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent-hi">
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="font-mono text-[11px] text-ink-200">23 §§ · EN</span>
+        </div>
+        <h3 class="display text-2xl text-white">Engineering spec</h3>
+        <p class="text-sm text-ink-100 leading-relaxed">
+          <span data-it>Spec tecnica per developer (NON MVP): 9 microservizi, data model PostgreSQL + ClickHouse, API completa, integrazioni Meta/Google/TikTok/Stripe/Shopify, security, roadmap.</span>
+          <span data-en>Developer spec (NOT MVP): 9 microservices, PostgreSQL + ClickHouse data model, full API, Meta/Google/TikTok/Stripe/Shopify integrations, security, roadmap.</span>
+        </p>
+        <div class="mt-auto pt-4 flex items-center justify-between border-t border-white/[0.06]">
+          <span class="font-mono text-xs text-ink-300"><span data-it>3.500 engineering hours</span><span data-en>3,500 engineering hours</span></span>
+          <span class="text-accent-hi text-lg group-hover:translate-x-1 transition">→</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA FINAL ═══════════════════ -->
+<section id="cta" class="py-32 sm:py-40 border-t border-white/[0.06] relative overflow-hidden">
+  <div class="aurora opacity-60"></div>
+  <div class="grid-bg opacity-50"></div>
+
+  <div class="relative max-w-4xl mx-auto px-5 sm:px-8">
+    <h2 class="display text-4xl sm:text-6xl lg:text-7xl text-white">
+      <span data-it>I primi cento investitori <span class="serif aurora-text font-normal block">disegnano la piattaforma.</span></span>
+      <span data-en>The first hundred investors <span class="serif aurora-text font-normal block">shape the platform.</span></span>
+    </h2>
+    <p class="mt-8 text-lg text-ink-100 leading-relaxed max-w-2xl">
+      <span data-it>Founders cohort: accesso early alle prime dieci campagne curate, sconto fee a vita, call mensile diretta con il founder.</span>
+      <span data-en>Founders cohort: early access to the first ten curated campaigns, lifetime fee discount, monthly call directly with the founder.</span>
+    </p>
+
+    <form class="mt-10 sm:mt-12 flex flex-col sm:flex-row gap-3 max-w-xl" onsubmit="event.preventDefault(); this.querySelector('button').textContent = document.documentElement.getAttribute('data-lang') === 'it' ? 'Grazie. Rispondiamo in 48h.' : 'Thanks. We reply in 48h.';">
+      <input type="email" required autocomplete="email" placeholder="email@example.com"
+             class="flex-1 bg-white/[0.04] border border-white/[0.12] rounded-full px-6 py-4 text-white placeholder:text-ink-300 focus:outline-none focus:border-accent transition" />
+      <button type="submit" class="hoverable bg-white text-midnight-900 hover:bg-accent hover:text-white transition px-7 py-4 rounded-full font-medium whitespace-nowrap">
+        <span data-it>Richiedi accesso</span><span data-en>Request access</span> →
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="border-t border-white/[0.06] py-14">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row gap-8 justify-between">
+    <div>
+      <a href="/" class="flex items-baseline gap-1.5"><span class="font-bold text-[17px] tracking-tight text-white">CROWADS</span><span class="w-2 h-2 rounded-full bg-accent"></span></a>
+      <p class="mt-3 font-mono text-xs text-ink-200">Founded by Ale &amp; Joe · Dubai + Verona</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-ink-100">
+      <a href="business-plan.html" class="hover:text-accent-hi transition">Business plan</a>
+      <a href="regolamento.html" class="hover:text-accent-hi transition">Regolamento</a>
+      <a href="spec-tecnica.html" class="hover:text-accent-hi transition">Engineering</a>
+      <a href="mailto:hello@crowads.com" class="hover:text-accent-hi transition">Contact</a>
+    </nav>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-10 pt-8 border-t border-white/[0.04]">
+    <p class="text-xs text-ink-300 leading-relaxed max-w-3xl">
+      <span data-it>CROWADS è una piattaforma di performance marketing, non un intermediario finanziario. Non offriamo consulenza di investimento, strumenti finanziari o raccolta del pubblico risparmio. I contratti revenue share sono accordi bilaterali tra investitori e startup. Il capitale destinato alle campagne è a rischio commerciale.</span>
+      <span data-en>CROWADS is a performance marketing platform, not a financial intermediary. We do not provide investment advice, securities, or solicit public savings. Revenue share contracts are bilateral agreements between investors and startups. Capital deployed in campaigns is at commercial risk.</span>
+    </p>
+  </div>
+</footer>
+
+<!-- ═════════════ SCRIPTS ═════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+
+<script>
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  /* ─── LANGUAGE TOGGLE ─── */
+  const savedLang = localStorage.getItem('crowads_lang') || 'it';
+  document.documentElement.setAttribute('data-lang', savedLang);
+  document.documentElement.setAttribute('lang', savedLang);
+  document.querySelectorAll('[data-set-lang]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.setLang === savedLang);
+    btn.setAttribute('aria-pressed', btn.dataset.setLang === savedLang);
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.setLang;
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+      localStorage.setItem('crowads_lang', lang);
+      document.querySelectorAll('[data-set-lang]').forEach(b => {
+        b.classList.toggle('active', b.dataset.setLang === lang);
+        b.setAttribute('aria-pressed', b.dataset.setLang === lang);
+      });
+    });
+  });
+
+  /* ─── LENIS smooth scroll ─── */
+  if (!reduceMotion && window.Lenis) {
+    const lenis = new Lenis({ duration: 1.1, easing: t => 1 - Math.pow(1 - t, 3), smoothWheel: true, smoothTouch: false });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); lenis.scrollTo(t, { offset: -72, duration: 1.2 }); }
+      });
+    });
+  }
+
+  /* ─── GSAP ─── */
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    if (window.SplitText) gsap.registerPlugin(SplitText);
+  }
+
+  /* ─── SCROLL PROGRESS ─── */
+  const bar = document.getElementById('scrollBar');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = (window.scrollY / Math.max(1, max)) * 100;
+      bar.style.width = pct + '%';
+    }, { passive: true });
+  }
+
+  /* ─── CUSTOM CURSOR ─── */
+  if (!reduceMotion && !isTouch) {
+    const dot = document.querySelector('.cursor');
+    const ring = document.querySelector('.cursor-ring');
+    if (dot && ring) {
+      let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+      let rx = mx, ry = my;
+      window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`; });
+      (function trail() {
+        rx += (mx - rx) * 0.18;
+        ry += (my - ry) * 0.18;
+        ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+        requestAnimationFrame(trail);
+      })();
+    }
+  }
+
+  /* ─── SPLIT TEXT HERO ─── */
+  function revealSplit() {
+    if (reduceMotion || !window.SplitText) {
+      document.querySelectorAll('.split-reveal .char').forEach(el => { el.style.transform = 'translateY(0)'; el.style.opacity = '1'; });
+      return;
+    }
+    const visibleHeroBlock = document.querySelector('.split-reveal [data-' + (document.documentElement.getAttribute('data-lang')) + ']');
+    const target = visibleHeroBlock || document.querySelector('.split-reveal');
+    if (!target) return;
+    if (target._splitDone) return;
+    target._splitDone = true;
+    const split = new SplitText(target, { type: 'chars,words' });
+    gsap.to(split.chars, { y: 0, opacity: 1, stagger: 0.012, duration: 0.9, ease: 'expo.out', delay: 0.2 });
+  }
+  setTimeout(revealSplit, 80);
+
+  /* ─── COUNTERS ─── */
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.counter);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const dur = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 4);
+      const val = Math.round(target * eased);
+      el.textContent = prefix + val.toLocaleString('it-IT') + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-counter]').forEach(c => io.observe(c));
+  }
+
+  /* ─── CARD TILT (desktop hover only) ─── */
+  if (!reduceMotion && !isTouch) {
+    document.querySelectorAll('.card-tilt').forEach(card => {
+      let raf = null;
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          card.style.transform = `perspective(900px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 3.5).toFixed(2)}deg)`;
+        });
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(900px) rotateX(0) rotateY(0)'; });
+    });
+  }
+
+  /* ─── TERMINAL ─── */
+  function buildTerminal() {
+    const root = document.getElementById('terminal');
+    if (!root) return;
+    const lines = [
+      `<span class="t-com">$ campaign --new "Mario AI growth Q3"</span>`,
+      `<span class="t-key">campaign_id</span>   <span class="t-val">0x42a8</span>`,
+      `<span class="t-key">status</span>        <span class="t-val">open_for_funding</span>`,
+      `<span class="t-key">budget_target</span> <span class="t-num">€30.000</span>`,
+      `&nbsp;`,
+      `<span class="t-com"># 24 investitori si uniscono al pool</span>`,
+      `<span class="t-val">→</span> <span class="t-key">pool_filled</span> <span class="t-num">€30.000</span> <span class="t-com">in 4 giorni</span>`,
+      `&nbsp;`,
+      `<span class="t-com">$ campaign --launch 0x42a8</span>`,
+      `<span class="t-acc">✓</span> <span class="t-val">ads.meta.live</span>      <span class="t-num">€12.000 / 60d</span>`,
+      `<span class="t-acc">✓</span> <span class="t-val">ads.google.live</span>    <span class="t-num">€12.000 / 60d</span>`,
+      `<span class="t-acc">✓</span> <span class="t-val">ads.tiktok.live</span>    <span class="t-num">€6.000 / 60d</span>`,
+      `&nbsp;`,
+      `<span class="t-com"># revenue via Stripe + Shopify webhook</span>`,
+      `<span class="t-key">revenue_30d</span>   <span class="t-num">€48.200</span>`,
+      `<span class="t-key">ROAS</span>          <span class="t-num">4.8x</span>   <span class="t-com">(on track)</span>`,
+      `<span class="t-key">revenue_share</span> <span class="t-num">€14.460</span>  <span class="t-com">(30%)</span>`,
+      `&nbsp;`,
+      `<span class="t-com">$ distribute --month 2026-10</span>`,
+      `<span class="t-acc">✓</span> <span class="t-val">24 SEPA transfers</span>   <span class="t-num">€13.448</span>`,
+      `<span class="t-acc">✓</span> <span class="t-val">platform fee</span>        <span class="t-num">€1.012</span>`,
+    ];
+    root.innerHTML = lines.map(l => `<div class="terminal-line">${l}</div>`).join('');
+    if (reduceMotion) {
+      root.querySelectorAll('.terminal-line').forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+      return;
+    }
+    ScrollTrigger.create({
+      trigger: root, start: 'top 75%', once: true,
+      onEnter: () => gsap.to('#terminal .terminal-line', { opacity: 1, y: 0, stagger: 0.08, duration: 0.35, ease: 'power2.out' })
+    });
+  }
+  buildTerminal();
+
+  /* ─── REVEAL section content ─── */
+  if (!reduceMotion && window.gsap && window.ScrollTrigger) {
+    gsap.utils.toArray('section h2, section .card-tilt, .roadmap-row').forEach(el => {
+      gsap.from(el, { y: 24, opacity: 0, duration: 0.75, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.utils.toArray('.flow-step').forEach((el, i) => {
+      gsap.from(el, {
+        x: -30, opacity: 0, duration: 0.75, ease: 'expo.out', delay: i * 0.02,
+        scrollTrigger: { trigger: el, start: 'top 80%', once: true }
+      });
+    });
+  }
+
+  /* ─── HERO CANVAS — Investor swarm converging to ads ─── */
+  function initHeroCanvas() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas || reduceMotion) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w, h, particles, attractor;
+    function resize() {
+      w = canvas.width = canvas.offsetWidth * dpr;
+      h = canvas.height = canvas.offsetHeight * dpr;
+      ctx.scale(dpr, dpr);
+      const count = window.innerWidth < 640 ? 35 : 70;
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.6 + 0.6,
+        color: Math.random() > 0.7 ? '#FF2D55' : '#F4F4F5',
+      }));
+      attractor = { x: canvas.offsetWidth * 0.5, y: canvas.offsetHeight * 0.5 };
+    }
+    resize();
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('mousemove', e => {
+      const r = canvas.getBoundingClientRect();
+      attractor.x = e.clientX - r.left;
+      attractor.y = e.clientY - r.top;
+    });
+
+    function frame() {
+      ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      // attractor pull
+      particles.forEach(p => {
+        const dx = attractor.x - p.x, dy = attractor.y - p.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d > 0 && d < 250) {
+          p.vx += (dx / d) * 0.018;
+          p.vy += (dy / d) * 0.018;
+        }
+        p.vx *= 0.98; p.vy *= 0.98;
+      });
+      // lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i], b = particles[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < 24000) {
+            const alpha = 1 - d2 / 24000;
+            ctx.strokeStyle = `rgba(255, 73, 112, ${alpha * 0.35})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      particles.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.offsetWidth) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.offsetHeight) p.vy *= -1;
+        ctx.fillStyle = p.color === '#FF2D55' ? 'rgba(255,45,85,0.9)' : 'rgba(244,244,245,0.85)';
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  initHeroCanvas();
+})();
+</script>
+
+</body>
+</html>

@@ -728,17 +728,17 @@
 
         <div class="flow-step relative pl-16 sm:pl-24">
           <div class="absolute left-0 top-0 w-12 h-12 sm:w-[72px] sm:h-[72px] rounded-2xl glass-strong flex items-center justify-center text-accent-hi border border-accent/40">
-            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg>
+            <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg>
           </div>
           <div class="flex items-baseline gap-3 mb-2">
             <span class="font-mono text-xs text-accent-hi">05</span>
-            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>Calcolo automatico revenue share</span><span data-en>Automatic revenue share calculation</span></h3>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>Stripe Connect trattiene la fee · alla fonte · per ogni vendita</span><span data-en>Stripe Connect withholds the fee · at the source · on every sale</span></h3>
           </div>
           <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
-            <span data-it>Ogni mese il sistema calcola: <code class="font-mono text-accent-hi">revenue attribuito × 30%</code> = importo dovuto da startup a CROWADS. Il contratto Revenue Share Marketing (RSM) firmato dalla startup obbliga al versamento mensile, entro il 15. Penale 2%/mese in caso di ritardo. Garanzia personale del founder.</span>
-            <span data-en>Every month the system computes: <code class="font-mono text-accent-hi">attributed revenue × 30%</code> = amount due from startup to CROWADS. The signed Revenue Share Marketing (RSM) contract enforces monthly payment by the 15th. 2%/month penalty on late payment. Founder personal guarantee.</span>
+            <span data-it>Ogni euro che il cliente paga viene splittato automaticamente da Stripe Connect: la nostra quota (es. 30%) finisce sul conto CROWADS PRIMA che la startup riceva un euro. Non c'è bonifico mensile, non c'è fatturazione, non c'è ritardo possibile. <strong class="text-white">Prima noi, poi loro.</strong></span>
+            <span data-en>Every euro the customer pays is automatically split by Stripe Connect: our cut (e.g. 30%) lands on the CROWADS account BEFORE the startup gets a single euro. No monthly transfer, no invoicing, no possible delay. <strong class="text-white">Us first, then them.</strong></span>
           </p>
-          <p class="mt-3 font-mono text-xs text-ink-200">EXAMPLE · <span class="text-accent-hi">€50.000 revenue × 30% = €15.000 due to CROWADS</span></p>
+          <p class="mt-3 font-mono text-xs text-ink-200">EXAMPLE · <span class="text-accent-hi">€49 vendita → €0.89 Stripe fee · €14.40 CROWADS · €33.71 startup</span></p>
         </div>
 
         <div class="flow-step relative pl-16 sm:pl-24">
@@ -747,13 +747,13 @@
           </div>
           <div class="flex items-baseline gap-3 mb-2">
             <span class="font-mono text-xs text-accent-hi">06</span>
-            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>La startup paga CROWADS</span><span data-en>Startup pays CROWADS</span></h3>
+            <h3 class="display text-2xl sm:text-3xl text-white"><span data-it>Accumulo sul conto CROWADS · zero insolvenza</span><span data-en>Accumulation on CROWADS account · zero default</span></h3>
           </div>
           <p class="text-ink-100 leading-relaxed max-w-3xl text-[15px]">
-            <span data-it>La startup bonifica i €15.000 sul nostro conto. CROWADS trattiene la <strong class="text-white">platform fee</strong> (5-10% del revenue share) + eventuale <strong class="text-white">performance bonus</strong> (50% del surplus se ROAS &gt; 3x). Esempio: €15.000 − €1.500 platform fee − €2.000 performance bonus = <strong class="text-accent-hi">€11.500 distribuibili agli investitori</strong>.</span>
-            <span data-en>The startup wires €15,000 to our account. CROWADS withholds the <strong class="text-white">platform fee</strong> (5-10% of revenue share) + optional <strong class="text-white">performance bonus</strong> (50% of surplus if ROAS &gt; 3x). Example: €15,000 − €1,500 platform fee − €2,000 perf bonus = <strong class="text-accent-hi">€11,500 distributable to investors</strong>.</span>
+            <span data-it>I €14.40 di ogni vendita si accumulano sul conto CROWADS giorno per giorno. La startup non vede mai questi soldi, non li tiene, non li può "dimenticare" di pagare. Stripe Connect è il PSP regolato che fa il lavoro. CROWADS trattiene la <strong class="text-white">platform fee</strong> (5-10%) + eventuale <strong class="text-white">performance bonus</strong> (50% del surplus se ROAS &gt; 3x). Il resto è destinato agli investitori.</span>
+            <span data-en>The €14.40 from every sale accumulate on the CROWADS account day by day. The startup never sees this money, doesn't hold it, can't "forget" to pay. Stripe Connect, the regulated PSP, does the job. CROWADS withholds the <strong class="text-white">platform fee</strong> (5-10%) + optional <strong class="text-white">performance bonus</strong> (50% of surplus if ROAS &gt; 3x). The rest goes to investors.</span>
           </p>
-          <p class="mt-3 font-mono text-xs text-ink-200">CROWADS REVENUE · <span class="text-accent-hi">platform fee + performance bonus</span></p>
+          <p class="mt-3 font-mono text-xs text-ink-200">CROWADS NET · <span class="text-accent-hi">platform fee + performance bonus</span></p>
         </div>
 
         <div class="flow-step relative pl-16 sm:pl-24">
@@ -877,56 +877,10 @@
       <span data-en><strong class="text-white">One rule</strong>: if the investor can't see ROI in the dashboard, the channel doesn't qualify. No generic PR, no untrackable offline billboards, no vanity sponsorships. Only channels with attributable conversion.</span>
     </p>
 
-    <!-- Misurabilità detail per canale -->
-    <div class="mt-16 sm:mt-20">
-      <h3 class="display text-2xl sm:text-3xl mb-8">
-        <span data-it>Come misuriamo, <span class="serif aurora-text font-normal">come incassiamo.</span></span>
-        <span data-en>How we measure, <span class="serif aurora-text font-normal">how we collect.</span></span>
-      </h3>
-
-      <div class="border border-white/[0.08] rounded-2xl overflow-hidden divide-y divide-white/[0.06]">
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">📱 Paid Social / Search Ads</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> click → pixel landing → conversione Stripe/Shopify webhook. UTM unico per ogni ad.</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue tracciato dalla startup, mensile via bonifico (contratto RSM).</div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">💬 WhatsApp Marketing</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> click-to-chat unico con parametro tracciante. Chiusura vendita via CRM webhook (HubSpot, Pipedrive, custom).</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue chiuso dai chat generati, mensile.</div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">✉️ Email Marketing</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> tag unico nei link email. Provider (Brevo/Mailchimp) traccia open + click + conversion. Webhook Stripe matcha la vendita.</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue da campagne email, mensile.</div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">📩 SMS Campaigns</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> link shortener proprietario (crowads.link/xyz) per ogni SMS. Click + atterraggio + conversion attribuita.</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue da SMS-attribuiti, mensile.</div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">🌟 Influencer Paid</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> link unico + coupon code unico per ogni influencer. Tracking duale (URL + coupon checkout) elimina ambiguità.</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue da link/coupon influencer, mensile.</div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02]">
-          <div class="font-medium text-white text-sm">📊 SEO &amp; Content</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-white">Misuriamo:</strong> first-touch attribution + Google Search Console. Revenue dai visitatori organici landing su contenuti sponsorizzati.</div>
-          <div class="text-xs sm:text-sm text-ink-100"><strong class="text-accent-hi">Incassiamo:</strong> 30% del revenue first-touch nei 90 giorni successivi.</div>
-        </div>
-
-      </div>
-
-      <p class="mt-6 text-sm text-ink-200 leading-relaxed max-w-3xl">
-        <span data-it>Tutto avviene <strong class="text-white">alla fonte via Stripe Connect</strong>: zero bonifici manuali, zero fatture mensili, zero rischio mancato pagamento (vedi sezione "Stripe Connect" sotto).</span>
-        <span data-en>Everything happens <strong class="text-white">at the source via Stripe Connect</strong>: zero manual transfers, zero monthly invoices, zero risk of non-payment (see "Stripe Connect" section below).</span>
+    <div class="mt-12 p-6 sm:p-7 rounded-2xl border border-accent/30" style="background: rgba(255,45,85,0.06);">
+      <p class="text-base text-white leading-relaxed max-w-3xl">
+        <span data-it><strong>Una regola operativa unica per tutti i canali</strong>: il cliente finale paga <strong class="text-accent-hi">sempre via Stripe Connect</strong>. Stripe trattiene la nostra fee alla fonte PRIMA che la startup riceva un euro. Non importa se la vendita arriva da ads, WhatsApp, email, SMS, influencer o SEO. <strong>Prima incassiamo noi, poi libera la startup</strong>. Vedi la sezione sotto.</span>
+        <span data-en><strong>One operational rule across every channel</strong>: the end customer always pays via <strong class="text-accent-hi">Stripe Connect</strong>. Stripe withholds our fee at the source BEFORE the startup receives a single euro. It doesn't matter if the sale comes from ads, WhatsApp, email, SMS, influencer or SEO. <strong>We get paid first, then the startup is released</strong>. See section below.</span>
       </p>
     </div>
   </div>
@@ -1038,9 +992,69 @@
 
     </div>
 
+    <!-- Vale per OGNI canale -->
+    <div class="mt-14">
+      <h3 class="display text-2xl sm:text-3xl mb-3">
+        <span data-it>Vale per <span class="serif aurora-text font-normal">ogni canale</span>. Nessuna eccezione.</span>
+        <span data-en>Applies to <span class="serif aurora-text font-normal">every channel</span>. No exceptions.</span>
+      </h3>
+      <p class="text-base text-ink-100 leading-relaxed mb-6 max-w-3xl">
+        <span data-it>La startup, durante l'onboarding, configura tutti i suoi canali di vendita per passare attraverso il checkout Stripe Connect collegato a CROWADS. Da quel momento <strong class="text-white">ogni pagamento</strong> dei suoi clienti (da qualsiasi fonte) splitta automaticamente alla fonte.</span>
+        <span data-en>During onboarding the startup wires every sales channel through the Stripe Connect checkout linked to CROWADS. From then on, <strong class="text-white">every customer payment</strong> (from any source) splits automatically at the source.</span>
+      </p>
+
+      <div class="border border-white/[0.08] rounded-2xl overflow-hidden divide-y divide-white/[0.06]">
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">📱 Paid Social / Search Ads</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Ad click → landing startup → checkout Stripe Connect → <strong class="text-accent-hi">trattenuta CROWADS alla fonte</strong> → resto al conto startup.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">💬 WhatsApp Marketing</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Click-to-chat → conversazione → link checkout Stripe Connect inviato in chat → <strong class="text-accent-hi">split alla fonte</strong>.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">✉️ Email Marketing</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Email con link tracking → landing → checkout Stripe Connect → <strong class="text-accent-hi">split alla fonte</strong>.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">📩 SMS Campaigns</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">SMS con shortlink crowads.link/xyz → atterraggio → checkout Stripe Connect → <strong class="text-accent-hi">split alla fonte</strong>.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">🌟 Influencer Paid</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Bio link unico + coupon code → checkout Stripe Connect riconosce il coupon → <strong class="text-accent-hi">split alla fonte</strong>.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">📊 SEO / Content</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Visita organica → checkout Stripe Connect (sempre quello, anche per vendite organiche) → <strong class="text-accent-hi">split alla fonte</strong>.</div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-6 p-5 sm:p-6 hover:bg-white/[0.02] items-center">
+          <div class="sm:col-span-3 font-medium text-white text-sm">🛒 Vendite dirette qualsiasi</div>
+          <div class="sm:col-span-9 text-xs sm:text-sm text-ink-100">Qualsiasi cliente che paga la startup passa per Stripe Connect → <strong class="text-accent-hi">split alla fonte</strong>. Nessun canale è "fuori".</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Requirement startup -->
+    <div class="mt-10 p-7 sm:p-9 rounded-2xl border border-accent/40" style="background: rgba(255,45,85,0.06);">
+      <div class="font-mono text-xs text-accent-hi mb-3">▸ <span data-it>requirement obbligatorio per la startup</span><span data-en>mandatory startup requirement</span></div>
+      <p class="text-base text-white leading-relaxed">
+        <span data-it>Per entrare in CROWADS, la startup deve configurare <strong>tutti</strong> i suoi canali di vendita (sito, link bio, checkout, WhatsApp checkout) per usare il <strong>Stripe Connect Account collegato a CROWADS</strong>. Ogni cliente paga tramite Stripe Connect, fine della storia. Non ci sono "vendite fuori CROWADS" durante la campagna. È la condizione di partnership che garantisce trattenuta automatica e zero rischio insolvenza.</span>
+        <span data-en>To join CROWADS, the startup must configure <strong>all</strong> of its sales channels (website, bio link, checkout, WhatsApp checkout) to use the <strong>Stripe Connect Account linked to CROWADS</strong>. Every customer pays through Stripe Connect, period. There are no "sales outside CROWADS" during the campaign. This is the partnership condition that guarantees automatic withholding and zero default risk.</span>
+      </p>
+    </div>
+
     <p class="mt-10 text-sm text-ink-200 max-w-3xl leading-relaxed">
-      <span data-it>La startup, durante l'onboarding, autorizza un <strong class="text-white">Stripe Connect Account</strong> dedicato (o connetti il suo esistente). Da quel momento ogni pagamento dei suoi clienti passa attraverso lo split automatico. Stripe Connect è regolato e auditato; CROWADS resta solo agenzia di performance marketing.</span>
-      <span data-en>During onboarding the startup authorizes a dedicated <strong class="text-white">Stripe Connect Account</strong> (or connects its existing one). From that moment every customer payment goes through the automatic split. Stripe Connect is regulated and audited; CROWADS remains only a performance marketing agency.</span>
+      <span data-it>Stripe Connect è regolato e auditato. CROWADS resta solo agenzia di performance marketing, non intermediario finanziario. Nessuna licenza PSP/EMI richiesta.</span>
+      <span data-en>Stripe Connect is regulated and audited. CROWADS remains a performance marketing agency, not a financial intermediary. No PSP/EMI license required.</span>
     </p>
   </div>
 </section>
